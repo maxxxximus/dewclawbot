@@ -26,10 +26,10 @@ const result = await prompter.generatePrompts({
     style_preferences: ['neon']
   },
   geo: {
-    id: '1', 
-    country: 'UA',
-    language: 'uk',
-    currency: 'UAH',
+    id: '2', 
+    country: 'DE',
+    language: 'de-DE',
+    currency: 'EUR',
     cultural_elements: [],
     forbidden_elements: []
   },
@@ -61,16 +61,37 @@ src/
 5. **retro_classic** - вінтажний казино стиль з ретро елементами
 6. **minimal_modern** - чистий мінімалістичний стиль
 
-## 🌍 Підтримувані мови
+## 🌍 Підтримувані ГЕО (14)
 
-- 🇺🇦 Українська (uk)
-- 🇷🇺 Російська (ru) 
-- 🇺🇸 Англійська (en)
+- 🇳🇱 **NL** - Netherlands (nl-NL, EUR)
+- 🇩🇪 **DE** - Germany (de-DE, EUR)
+- 🇵🇱 **PL** - Poland (pl-PL, PLN)
+- 🇬🇧 **UK** - United Kingdom (en-GB, GBP)
+- 🇮🇹 **IT** - Italy (it-IT, EUR)
+- 🇫🇷 **FR** - France (fr-FR, EUR)
+- 🇪🇸 **ES** - Spain (es-ES, EUR)
+- 🇵🇹 **PT** - Portugal (pt-PT, EUR)
+- 🇨🇿 **CZ** - Czech Republic (cs-CZ, CZK)
+- 🇭🇺 **HU** - Hungary (hu-HU, HUF)
+- 🇸🇮 **SL** - Slovenia (sl-SI, EUR)
+- 🇸🇰 **SK** - Slovakia (sk-SK, EUR)
+- 🇦🇹 **AT** - Austria (de-AT, EUR)
+- 🇧🇪 **BE** - Belgium (nl-BE, EUR)
+
+## 🌐 Підтримувані мови
+
 - 🇩🇪 Німецька (de)
-- 🇪🇸 Іспанська (es)
-- 🇫🇷 Французька (fr)
-- 🇵🇹 Португальська (pt)
+- 🇳🇱 Нідерландська (nl)
+- 🇵🇱 Польська (pl)
+- 🇬🇧 Англійська (en)
 - 🇮🇹 Італійська (it)
+- 🇫🇷 Французька (fr)
+- 🇪🇸 Іспанська (es)
+- 🇵🇹 Португальська (pt)
+- 🇨🇿 Чеська (cs)
+- 🇭🇺 Угорська (hu)
+- 🇸🇮 Словенська (sl)
+- 🇸🇰 Словацька (sk)
 
 ## ⚡ Рівні агресії
 

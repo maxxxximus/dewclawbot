@@ -14,7 +14,13 @@ export const CTA_TEMPLATES: CTATemplate[] = [
       'es': 'Prueba Ahora',
       'fr': 'Essayer Maintenant',
       'pt': 'Experimente Agora',
-      'it': 'Prova Ora'
+      'it': 'Prova Ora',
+      'nl': 'Nu Proberen',
+      'pl': 'Spróbuj Teraz',
+      'cs': 'Vyzkoušet Nyní',
+      'hu': 'Próbáld Most',
+      'sl': 'Preizkusi Zdaj',
+      'sk': 'Skúsiť Teraz'
     }
   },
   {
@@ -28,7 +34,13 @@ export const CTA_TEMPLATES: CTATemplate[] = [
       'es': 'Empezar a Jugar',
       'fr': 'Commencer à Jouer',
       'pt': 'Começar a Jogar',
-      'it': 'Inizia a Giocare'
+      'it': 'Inizia a Giocare',
+      'nl': 'Begin met Spelen',
+      'pl': 'Zacznij Grać',
+      'cs': 'Začít Hrát',
+      'hu': 'Kezdd el Játszani',
+      'sl': 'Začni Igrati',
+      'sk': 'Začať Hrať'
     }
   },
   
@@ -44,7 +56,13 @@ export const CTA_TEMPLATES: CTATemplate[] = [
       'es': '¡Gana en Grande!',
       'fr': 'Gagnez Gros!',
       'pt': 'Ganhe Grande!',
-      'it': 'Vinci alla Grande!'
+      'it': 'Vinci alla Grande!',
+      'nl': 'Win Groot Vandaag!',
+      'pl': 'Wygraj Duże Dziś!',
+      'cs': 'Vyhrál Velké Dnes!',
+      'hu': 'Nyerj Nagyot Ma!',
+      'sl': 'Zmaga Veliki Danes!',
+      'sk': 'Vyhrať Veľké Dnes!'
     }
   },
   {
@@ -58,7 +76,13 @@ export const CTA_TEMPLATES: CTATemplate[] = [
       'es': 'Reclama tu Bono',
       'fr': 'Réclamez Votre Bonus',
       'pt': 'Reivindique Seu Bônus',
-      'it': 'Rivendica il Tuo Bonus'
+      'it': 'Rivendica il Tuo Bonus',
+      'nl': 'Claim Je Bonus',
+      'pl': 'Zgarnij Swój Bonus',
+      'cs': 'Získej Svůj Bonus',
+      'hu': 'Igényelj Bónuszt',
+      'sl': 'Zahtevaj Svoj Bonus',
+      'sk': 'Požaduj Svoj Bonus'
     }
   },
 
@@ -74,7 +98,13 @@ export const CTA_TEMPLATES: CTATemplate[] = [
       'es': '¡JACKPOT TE ESPERA!',
       'fr': 'JACKPOT VOUS ATTEND!',
       'pt': 'JACKPOT TE AGUARDA!',
-      'it': 'JACKPOT TI ASPETTA!'
+      'it': 'JACKPOT TI ASPETTA!',
+      'nl': 'JACKPOT WACHT!',
+      'pl': 'JACKPOT CZEKA!',
+      'cs': 'JACKPOT ČEKÁ!',
+      'hu': 'JACKPOT VÁR!',
+      'sl': 'JACKPOT ČAKA!',
+      'sk': 'JACKPOT ČAKÁ!'
     }
   },
   {
@@ -88,7 +118,13 @@ export const CTA_TEMPLATES: CTATemplate[] = [
       'es': '¡ÚLTIMA OPORTUNIDAD!',
       'fr': 'DERNIÈRE CHANCE!',
       'pt': 'ÚLTIMA CHANCE!',
-      'it': 'ULTIMA POSSIBILITÀ!'
+      'it': 'ULTIMA POSSIBILITÀ!',
+      'nl': 'LAATSTE KANS!',
+      'pl': 'OSTATNIA SZANSA!',
+      'cs': 'POSLEDNÍ ŠANCE!',
+      'hu': 'UTOLSÓ LEHETŐSÉG!',
+      'sl': 'ZADNJA PRILOŽNOST!',
+      'sk': 'POSLEDNÁ ŠANCA!'
     }
   }
 ];
@@ -150,7 +186,13 @@ export class CTALocalizer {
       'es': 'Jugar Ahora',
       'fr': 'Jouer Maintenant',
       'pt': 'Jogar Agora',
-      'it': 'Gioca Ora'
+      'it': 'Gioca Ora',
+      'nl': 'Speel Nu',
+      'pl': 'Graj Teraz',
+      'cs': 'Hrát Nyní',
+      'hu': 'Játssz Most',
+      'sl': 'Igraj Zdaj',
+      'sk': 'Hrať Teraz'
     };
 
     return fallbacks[language] || fallbacks['en'];

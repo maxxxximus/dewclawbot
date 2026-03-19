@@ -24,16 +24,16 @@ const exampleSlots = [
 const exampleGeos = [
   {
     id: 'geo_001',
-    country: 'UA',
-    language: 'uk',
-    currency: 'UAH',
-    cultural_elements: ['Ukrainian flags', 'traditional colors'],
-    forbidden_elements: ['Russian symbols']
+    country: 'NL',
+    language: 'nl-NL',
+    currency: 'EUR',
+    cultural_elements: ['Dutch culture', 'European standards'],
+    forbidden_elements: ['illegal gambling symbols']
   },
   {
     id: 'geo_002',
     country: 'DE',
-    language: 'de', 
+    language: 'de-DE', 
     currency: 'EUR',
     cultural_elements: ['German efficiency', 'premium quality'],
     forbidden_elements: ['illegal gambling symbols']
@@ -54,7 +54,7 @@ export async function demonstratePromptGeneration() {
     api_type: 'nano_banana_pro'
   };
 
-  console.log('📱 Generating prompts for Ukrainian casino audience...');
+  console.log('📱 Generating prompts for Dutch casino audience...');
   const result1 = await prompter.generatePrompts(input1);
   console.log(`Generated ${result1.total_generated} prompts in ${result1.generation_time_ms}ms`);
   

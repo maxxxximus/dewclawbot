@@ -19,11 +19,11 @@ describe('Prompter', () => {
     };
 
     testGeo = {
-      id: 'test_geo_001',
-      country: 'UA',
-      language: 'uk',
-      currency: 'UAH',
-      cultural_elements: ['Ukrainian elements'],
+      id: '2',
+      country: 'DE',
+      language: 'de-DE',
+      currency: 'EUR',
+      cultural_elements: ['German elements'],
       forbidden_elements: ['prohibited content']
     };
   });

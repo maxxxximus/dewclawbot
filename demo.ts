@@ -21,18 +21,18 @@ async function runDemo() {
   };
 
   const geo = {
-    id: 'demo_geo_ua',
-    country: 'UA',
-    language: 'uk',
-    currency: 'UAH',
-    cultural_elements: ['Ukrainian culture', 'national colors'],
+    id: 'demo_geo_de',
+    country: 'DE',
+    language: 'de-DE',
+    currency: 'EUR',
+    cultural_elements: ['German culture', 'European standards'],
     forbidden_elements: ['political content']
   };
 
   // Test different scenarios
   const scenarios = [
     {
-      name: '🎰 Ukrainian Casino - Medium Aggression - Square Format',
+      name: '🎰 German Casino - Medium Aggression - Square Format',
       input: {
         slot,
         geo,
