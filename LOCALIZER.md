@@ -1,153 +1,236 @@
-# CREATIVE LOCALIZER
+# ЛОКАЛІЗАТОР — Creative Localizer
 
-Автоматична система адаптації gambling креативів на різні ГЕО. Перекладає CTA тексти, адаптує банки та валюти, зберігає якість.
+Автоматична адаптація креативів на 10 ГЕО з підтримкою переклад CTA через LLM, заміни банків та валют.
 
-## 🎯 Основні можливості
+## Можливості
 
-- **10 ГЕО одночасно**: Brazil, India, Peru, Mexico, Chile, Turkey, Philippines, Nigeria, Thailand, Indonesia
-- **Розумний переклад**: через Claude (не Google Translate) з урахуванням gambling контексту 
-- **Локальна адаптація**: банки, платіжні системи, валютні символи
-- **Збереження якості**: обробка зображень через Pillow
-- **Пакетна обробка**: локалізація цілих папок креативів
+✅ **10 ГЕО одночасно**: Бразилія, Індія, Перу, Мексика, Чілі, Туреччина, Філіппіни, Нігерія, Таїланд, Індонезія  
+✅ **LLM переклад**: Anthropic/OpenAI для якісного переклад CTA  
+✅ **Локальні банки**: Автовибір популярних банків для кожного ГЕО  
+✅ **Правильна валюта**: Автоматична заміна валют (BRL, INR, PEN, MXN, CLP, TRY, PHP, NGN, THB, IDR)  
+✅ **Збереження якості**: Копіювання з метаданими, без втрат  
+✅ **Batch processing**: Масова обробка креативів  
 
-## 🚀 Швидкий старт
+## Швидкий старт
 
-### Встановлення
 ```bash
-pip install -r requirements.txt
-export ANTHROPIC_API_KEY="your-api-key"
+# Встановлення залежностей
+npm install
+
+# Локалізація на всі 10 ГЕО
+npm run localize -- -i "./creative.png" -s "slots_fire" -o "./output" -c "WIN BIG!"
+
+# Локалізація на конкретні ГЕО
+npm run localize:specific -- -i "./bonus.png" -s "bonus_weekend" -o "./localized" -g "1,2,3" -c "CLAIM BONUS"
+
+# Список доступних ГЕО
+npm run localize:geos
 ```
 
-### Базове використання
-```bash
-# Локалізувати один креатив для всіх ГЕО
-python localizer.py creative.png
+## Використання через код
 
-# Локалізувати для конкретних ГЕО
-python localizer.py creative.png BR,IN,MX
+```typescript
+import { CreativeLocalizer } from './src/localization/localizer';
 
-# Пакетна обробка папки
-python localizer.py --batch input_folder/ BR,IN,PE,MX,CL
+const localizer = new CreativeLocalizer('your-llm-api-key', 'anthropic');
+
+const result = await localizer.localizeCreative({
+  creativeImagePath: './source-creative.png',
+  slot: 'poker_royal',
+  outputDir: './localized-variants',
+  ctaText: 'JOIN THE ROYAL GAME!',
+  llmApiKey: 'sk-...',
+  llmProvider: 'anthropic'
+});
+
+console.log(`Generated ${result.totalGenerated} variants in ${result.processingTimeMs}ms`);
 ```
 
-### Програмне використання
-```python
-from localizer import CreativeLocalizer
+## Підтримувані ГЕО
 
-localizer = CreativeLocalizer()
+| ID | Країна | Мова | Валюта | Топ Банк | Топ Платіжка |
+|----|---------|------|--------|----------|--------------|
+| 1 | Brazil | pt-BR | BRL | Itaú Unibanco | PIX |
+| 2 | India | hi-IN | INR | State Bank of India | UPI |
+| 3 | Peru | es-PE | PEN | BCP | Yape |
+| 4 | Mexico | es-MX | MXN | BBVA México | SPEI |
+| 5 | Chile | es-CL | CLP | Banco de Chile | Khipu |
+| 6 | Turkey | tr-TR | TRY | Ziraat Bankası | Papara |
+| 7 | Philippines | en-PH | PHP | BDO | GCash |
+| 8 | Nigeria | en-NG | NGN | First Bank | Flutterwave |
+| 9 | Thailand | th-TH | THB | Siam Commercial Bank | PromptPay |
+| 10 | Indonesia | id-ID | IDR | Bank Mandiri | OVO |
 
-# Локалізувати один креатив
-results = localizer.localize_creative("creative.png", target_geos=["BR", "IN"])
+## Структура виходів
 
-# Пакетна обробка
-batch_results = localizer.localize_batch("input/", target_geos=["BR", "IN", "MX"])
-```
-
-## 📊 Підтримувані ГЕО
-
-| Код | Країна | Мова | Валюта | Топ банк | Топ платіжка |
-|-----|--------|------|--------|----------|-------------|
-| BR | Brazil | pt-BR | BRL (R$) | Itaú Unibanco | PIX |
-| IN | India | hi-IN | INR (₹) | State Bank of India | UPI |
-| PE | Peru | es-PE | PEN (S/) | BCP | Yape |
-| MX | Mexico | es-MX | MXN ($) | BBVA México | SPEI |
-| CL | Chile | es-CL | CLP ($) | Banco de Chile | Khipu |
-| TR | Turkey | tr-TR | TRY (₺) | Ziraat Bankası | Havale/EFT |
-| PH | Philippines | en-PH | PHP (₱) | BDO | GCash |
-| NG | Nigeria | en-NG | NGN (₦) | First Bank | Bank Transfer |
-| TH | Thailand | th-TH | THB (฿) | Siam Commercial Bank | PromptPay |
-| ID | Indonesia | id-ID | IDR (Rp) | Bank Mandiri | OVO |
-
-## 🔄 Алгоритм роботи
-
-1. **Аналіз оригіналу**: CreativeScanner витягує метадані (CTA текст, позиція, стиль)
-2. **Переклад CTA**: Claude перекладає з урахуванням рівня агресії та gambling термінології  
-3. **Локальна адаптація**: вибір банку та платіжки з конфігу ГЕО
-4. **Обробка зображення**: заміна тексту з збереженням стилю
-5. **Збереження**: формат `{slot}_{geo}_{lang}_{n}.png`
-
-## 📁 Структура виводу
+Кожен локалізований креатив зберігається як:
 
 ```
-output/localized/
-├── sweet_bonanza_br_pt_1.png    # Бразилія
-├── sweet_bonanza_in_hi_1.png    # Індія  
-├── sweet_bonanza_mx_es_1.png    # Мексика
-└── ...
+{slot}_{geo}_{lang}_{n}.png
+{slot}_{geo}_{lang}_{n}.json  // метадані
 ```
 
-## ⚙️ Конфігурація
+**Приклад**: `slots_fire_brazil_pt_1234.png`
 
-Дані ГЕО зберігаються в `config/geos.json`:
+### Метадані (JSON)
+
 ```json
 {
-  "geos": [
-    {
-      "country_code": "BR",
-      "name": "Brazil", 
-      "language": "pt-BR",
-      "currency": "BRL",
-      "top_banks": ["Itaú Unibanco", "..."],
-      "payment_methods": ["PIX", "..."]
-    }
-  ]
+  "sourceImage": "/path/to/original.png",
+  "localization": {
+    "ctaText": "JOGUE AGORA",
+    "currency": "BRL",
+    "bank": "Itaú Unibanco",
+    "paymentMethod": "PIX",
+    "language": "pt-BR"
+  },
+  "generatedAt": "2024-03-19T15:30:00.000Z",
+  "version": "1.0"
 }
 ```
 
-## 🧪 Тестування
+## CLI команди
+
+### Повна локалізація (всі 10 ГЕО)
 
 ```bash
-# Запустити тести з демонстрацією
-python test_localizer.py
+npm run localize -- [опції]
 
-# Створити тестовий креатив та локалізувати для BR, IN, MX
+Опції:
+  -i, --input <path>      Шлях до вхідного креативу
+  -s, --slot <name>       Ідентифікатор слоту (для файлів)
+  -o, --output <dir>      Папка для збереження варіантів
+  -c, --cta <text>        CTA текст для локалізації
+  -k, --api-key <key>     API ключ для LLM перекладу
+  -p, --provider <type>   LLM провайдер (anthropic|openai)
 ```
 
-## 📝 Приклади результатів
+### Вибіркова локалізація
 
-**Оригінал**: "WIN BIG NOW"
-- 🇧🇷 Brazil: "GANHE MUITO AGORA" 
-- 🇮🇳 India: "अभी बड़ी जीत पाएं"
-- 🇲🇽 Mexico: "GANA EN GRANDE AHORA"
-- 🇹🇷 Turkey: "ŞİMDİ BÜYÜK KAZAN"
+```bash
+npm run localize:specific -- [опції] -g "1,2,3"
 
-## 🔧 API Reference
+Додаткова опція:
+  -g, --geos <ids>        Список ID ГЕО через кому (1-10)
+```
 
-### CreativeLocalizer
+### Список ГЕО
 
-#### `__init__(api_key: Optional[str] = None)`
-Ініціалізація з Anthropic API ключем
+```bash
+npm run localize:geos
+```
 
-#### `localize_creative(image_path, target_geos=None, output_dir="output/localized")`
-Локалізує один креатив
-- **image_path**: Шлях до зображення
-- **target_geos**: Список кодів ГЕО або None для всіх
-- **output_dir**: Папка для збереження
-- **Returns**: `{geo_code: output_path}`
+## Приклади
 
-#### `localize_batch(input_dir, output_dir="output/localized", target_geos=None)`
-Пакетна локалізація папки
-- **input_dir**: Папка з креативами
-- **target_geos**: Список кодів ГЕО
-- **Returns**: `{filename: {geo_code: output_path}}`
+### Базовий приклад
 
-## 🎯 Acceptance Criteria ✅
+```bash
+# Локалізувати слот креатив на всі ГЕО
+npm run localize -- \
+  -i "./assets/fire_slots.png" \
+  -s "fire_slots_promo" \
+  -o "./output/localized" \
+  -c "🔥 JACKPOT AWAITS!"
+```
 
-- [x] **Підтримка 10 ГЕО одночасно** - Brazil, India, Peru, Mexico, Chile, Turkey, Philippines, Nigeria, Thailand, Indonesia
-- [x] **Автоматичний переклад CTA через LLM** - Claude з gambling контекстом, не Google Translate  
-- [x] **Правильна валюта для кожного ГЕО** - символи валют з `geos.json`
-- [x] **Збереження якості при локалізації** - Pillow для обробки зображень
+### З LLM перекладом
 
-## 🚨 Обмеження
+```bash
+# Використати Anthropic для якісного перекладу
+npm run localize -- \
+  -i "./creatives/bonus_weekend.png" \
+  -s "weekend_special" \
+  -o "./variants" \
+  -c "CLAIM YOUR WEEKEND BONUS!" \
+  -k "sk-ant-api03-..." \
+  -p "anthropic"
+```
 
-- Підтримка PNG, JPG, WEBP форматів
-- Потребує ANTHROPIC_API_KEY
-- Прості алгоритми заміни тексту (для складної графіки може потребувати доопрацювання)
-- Розмір шрифту залежить від розміру зображення
+### Тільки латинська Америка
 
-## 🔮 Розширення
+```bash
+# Бразилія, Перу, Мексика, Чілі
+npm run localize:specific -- \
+  -i "./poker_royal.png" \
+  -s "poker_vip" \
+  -o "./latam" \
+  -g "1,3,4,5" \
+  -c "ROYAL POKER TOURNAMENT"
+```
 
-- Додавання нових ГЕО через `geos.json`
-- Інтеграція з різними LLM провайдерами
-- Більш складні алгоритми заміни тексту
-- Підтримка відео креативів
+### Азійські ринки
+
+```bash
+# Індія, Філіппіни, Таїланд, Індонезія
+npm run localize:specific -- \
+  -i "./casino_live.png" \
+  -s "live_casino" \
+  -o "./asia" \
+  -g "2,7,9,10" \
+  -c "LIVE CASINO ACTION"
+```
+
+## LLM Конфігурація
+
+### Anthropic
+
+```bash
+export ANTHROPIC_API_KEY="sk-ant-api03-..."
+npm run localize -- -i "./creative.png" -s "test" -o "./output" -c "WIN NOW" -k "$ANTHROPIC_API_KEY" -p "anthropic"
+```
+
+### OpenAI
+
+```bash
+export OPENAI_API_KEY="sk-..."
+npm run localize -- -i "./creative.png" -s "test" -o "./output" -c "WIN NOW" -k "$OPENAI_API_KEY" -p "openai"
+```
+
+## Тестування
+
+```bash
+# Запустити всі тести
+npm test
+
+# Тести локалізатора
+npm test -- --testPathPattern=localizer
+
+# Приклад використання
+npm run example:localizer
+```
+
+## Технічні деталі
+
+### Архітектура
+
+- **`CreativeLocalizer`**: Основний клас для локалізації
+- **`LocalizationInput`**: Параметри вводу
+- **`LocalizedVariant`**: Результат для одного ГЕО
+- **CLI**: Командний інтерфейс через Commander.js
+
+### Алгоритм
+
+1. **Ініціалізація**: Завантаження конфігу ГЕО
+2. **Обробка**: Для кожного ГЕО:
+   - Переклад CTA (LLM або дефолт)
+   - Вибір банку/платіжки
+   - Генерація імені файлу
+   - Копіювання + метадані
+3. **Результат**: Масив варіантів з метриками
+
+### Обробка помилок
+
+- Продовження при помилці одного ГЕО
+- Fallback на дефолтні CTA при провалі LLM
+- Валідація вхідних параметрів
+- Детальні логи помилок
+
+### Розширення
+
+- Додавання нових ГЕО: оновити `config/geos.json`
+- Нові LLM провайдери: розширити методи перекладу
+- Кастомні CTA шаблони: додати в `cta-templates.ts`
+
+## Ліцензія
+
+MIT

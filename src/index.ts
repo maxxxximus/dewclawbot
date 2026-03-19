@@ -8,6 +8,7 @@
 export { Prompter, prompter } from './prompter';
 export { StyleSelector, STYLE_TEMPLATES } from './prompter/style-templates';
 export { CTALocalizer, CTA_TEMPLATES } from './localization/cta-templates';
+export { CreativeLocalizer } from './localization/localizer';
 export { ApiAdapterFactory } from './apis/adapters';
 
 // Export types
