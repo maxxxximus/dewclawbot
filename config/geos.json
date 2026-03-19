@@ -1,397 +1,142 @@
 {
-  "// Опис": "База даних ГЕО з мовами та топ банками/платіжками",
-  "// Формат": "country_code, name, language, currency, top_banks, payment_methods",
+  "// Опис": "База даних ГЕО з 17 цільових ринків",
+  "// Формат": "country_code, language, currency, cultural_elements, forbidden_elements",
   "geos": [
     {
-      "id": "1",
-      "country_code": "NL",
-      "name": "Netherlands",
-      "language": "nl-NL",
+      "id": "geo_nl",
+      "country": "NL",
+      "language": "nl",
       "currency": "EUR",
-      "timezone": "Europe/Amsterdam",
-      "top_banks": [
-        "ING Bank",
-        "ABN AMRO",
-        "Rabobank",
-        "SNS Bank"
-      ],
-      "payment_methods": [
-        "iDEAL",
-        "Bancontact",
-        "SEPA",
-        "PayPal"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "20:00-23:00",
-      "mobile_usage": "91%"
+      "cultural_elements": ["Dutch pragmatism", "orange color", "windmills", "cycling culture"],
+      "forbidden_elements": ["excessive gambling imagery", "religious content"]
     },
     {
-      "id": "2",
-      "country_code": "DE",
-      "name": "Germany",
-      "language": "de-DE",
+      "id": "geo_de",
+      "country": "DE", 
+      "language": "de",
       "currency": "EUR",
-      "timezone": "Europe/Berlin",
-      "top_banks": [
-        "Deutsche Bank",
-        "Commerzbank",
-        "DZ Bank",
-        "Sparkasse"
-      ],
-      "payment_methods": [
-        "SEPA",
-        "Sofort",
-        "Giropay",
-        "PayPal"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "19:00-22:00",
-      "mobile_usage": "89%"
+      "cultural_elements": ["German precision", "beer culture", "Oktoberfest", "football"],
+      "forbidden_elements": ["political content", "historical sensitive imagery"]
     },
     {
-      "id": "3",
-      "country_code": "PL",
-      "name": "Poland",
-      "language": "pl-PL",
+      "id": "geo_pl",
+      "country": "PL",
+      "language": "pl", 
       "currency": "PLN",
-      "timezone": "Europe/Warsaw",
-      "top_banks": [
-        "PKO Bank Polski",
-        "Bank Pekao",
-        "mBank",
-        "ING Bank Śląski"
-      ],
-      "payment_methods": [
-        "BLIK",
-        "Przelewy24",
-        "PayU",
-        "Bank Transfer"
-      ],
-      "gambling_preference": "slots_sports",
-      "peak_hours": "20:00-23:00",
-      "mobile_usage": "87%"
+      "cultural_elements": ["Polish traditions", "red and white colors", "Catholic culture"],
+      "forbidden_elements": ["political content", "religious mockery"]
     },
     {
-      "id": "4",
-      "country_code": "UK",
-      "name": "United Kingdom",
+      "id": "geo_uk",
+      "country": "UK",
       "language": "en-GB",
-      "currency": "GBP",
-      "timezone": "Europe/London",
-      "top_banks": [
-        "HSBC",
-        "Barclays",
-        "Lloyds",
-        "NatWest"
-      ],
-      "payment_methods": [
-        "Faster Payments",
-        "CHAPS",
-        "PayPal",
-        "Open Banking"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "19:00-22:00",
-      "mobile_usage": "92%"
+      "currency": "GBP", 
+      "cultural_elements": ["British humor", "tea culture", "football", "pubs"],
+      "forbidden_elements": ["excessive gambling promotion", "inappropriate betting imagery"]
     },
     {
-      "id": "5",
-      "country_code": "IT",
-      "name": "Italy",
-      "language": "it-IT",
+      "id": "geo_it",
+      "country": "IT",
+      "language": "it",
       "currency": "EUR",
-      "timezone": "Europe/Rome",
-      "top_banks": [
-        "UniCredit",
-        "Intesa Sanpaolo",
-        "Banco BPM",
-        "BPER Banca"
-      ],
-      "payment_methods": [
-        "SEPA",
-        "PostePay",
-        "Satispay",
-        "Bank Transfer"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "20:00-23:00",
-      "mobile_usage": "85%"
+      "cultural_elements": ["Italian style", "food culture", "fashion", "football"],
+      "forbidden_elements": ["mafia references", "religious mockery"]
     },
     {
-      "id": "6",
-      "country_code": "FR",
-      "name": "France",
-      "language": "fr-FR",
+      "id": "geo_fr",
+      "country": "FR", 
+      "language": "fr",
       "currency": "EUR",
-      "timezone": "Europe/Paris",
-      "top_banks": [
-        "BNP Paribas",
-        "Crédit Agricole",
-        "Société Générale",
-        "Banque Populaire"
-      ],
-      "payment_methods": [
-        "SEPA",
-        "CB",
-        "Lydia",
-        "PayPal"
-      ],
-      "gambling_preference": "live_casino",
-      "peak_hours": "20:00-23:00",
-      "mobile_usage": "88%"
+      "cultural_elements": ["French elegance", "wine culture", "fashion", "cuisine"],
+      "forbidden_elements": ["cultural stereotypes", "political content"]
     },
     {
-      "id": "7",
-      "country_code": "ES",
-      "name": "Spain",
-      "language": "es-ES",
+      "id": "geo_es",
+      "country": "ES",
+      "language": "es",
       "currency": "EUR",
-      "timezone": "Europe/Madrid",
-      "top_banks": [
-        "Santander",
-        "BBVA",
-        "CaixaBank",
-        "Banco Sabadell"
-      ],
-      "payment_methods": [
-        "SEPA",
-        "Bizum",
-        "PayPal",
-        "Bank Transfer"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "21:00-24:00",
-      "mobile_usage": "86%"
+      "cultural_elements": ["Spanish passion", "flamenco", "football", "fiestas"],
+      "forbidden_elements": ["bullfighting", "political references"]
     },
     {
-      "id": "8",
-      "country_code": "PT",
-      "name": "Portugal",
-      "language": "pt-PT",
-      "currency": "EUR",
-      "timezone": "Europe/Lisbon",
-      "top_banks": [
-        "Millennium BCP",
-        "CGD",
-        "Novo Banco",
-        "Santander Totta"
-      ],
-      "payment_methods": [
-        "SEPA",
-        "MB WAY",
-        "PayPal",
-        "Bank Transfer"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "20:00-23:00",
-      "mobile_usage": "84%"
+      "id": "geo_pt",
+      "country": "PT",
+      "language": "pt",
+      "currency": "EUR", 
+      "cultural_elements": ["Portuguese maritime heritage", "fado music", "football"],
+      "forbidden_elements": ["historical colonialism references"]
     },
     {
-      "id": "9",
-      "country_code": "CZ",
-      "name": "Czech Republic",
-      "language": "cs-CZ",
+      "id": "geo_cz",
+      "country": "CZ",
+      "language": "cs",
       "currency": "CZK",
-      "timezone": "Europe/Prague",
-      "top_banks": [
-        "Česká spořitelna",
-        "ČSOB",
-        "Komerční banka",
-        "Raiffeisenbank"
-      ],
-      "payment_methods": [
-        "Bank Transfer",
-        "SEPA",
-        "PayPal",
-        "QR platby"
-      ],
-      "gambling_preference": "slots_sports",
-      "peak_hours": "19:00-22:00",
-      "mobile_usage": "83%"
+      "cultural_elements": ["Czech beer culture", "architecture", "hockey"],
+      "forbidden_elements": ["political content", "communist imagery"]
     },
     {
-      "id": "10",
-      "country_code": "HU",
-      "name": "Hungary",
-      "language": "hu-HU",
+      "id": "geo_hu",
+      "country": "HU",
+      "language": "hu",
       "currency": "HUF",
-      "timezone": "Europe/Budapest",
-      "top_banks": [
-        "OTP Bank",
-        "K&H Bank",
-        "Erste Bank",
-        "UniCredit Bank"
-      ],
-      "payment_methods": [
-        "Bank Transfer",
-        "SEPA",
-        "Simple",
-        "PayPal"
-      ],
-      "gambling_preference": "slots_live_casino",
-      "peak_hours": "19:00-22:00",
-      "mobile_usage": "81%"
+      "cultural_elements": ["Hungarian folk culture", "thermal baths", "paprika"],
+      "forbidden_elements": ["political content", "historical trauma"]
     },
     {
-      "id": "11",
-      "country_code": "SL",
-      "name": "Slovenia",
-      "language": "sl-SI",
+      "id": "geo_sl",
+      "country": "SL",
+      "language": "sl",
       "currency": "EUR",
-      "timezone": "Europe/Ljubljana",
-      "top_banks": [
-        "NLB",
-        "SKB Banka",
-        "Abanka",
-        "Banka Sparkasse"
-      ],
-      "payment_methods": [
-        "SEPA",
-        "UPN QR",
-        "PayPal",
-        "Bank Transfer"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "20:00-23:00",
-      "mobile_usage": "82%"
+      "cultural_elements": ["Slovenian nature", "Alps", "skiing", "wine"],
+      "forbidden_elements": ["Yugoslav references", "political content"]
     },
     {
-      "id": "12",
-      "country_code": "SK",
-      "name": "Slovakia",
-      "language": "sk-SK",
+      "id": "geo_sk",
+      "country": "SK",
+      "language": "sk", 
       "currency": "EUR",
-      "timezone": "Europe/Bratislava",
-      "top_banks": [
-        "Slovenská sporiteľňa",
-        "VÚB Banka",
-        "Tatra banka",
-        "ČSOB"
-      ],
-      "payment_methods": [
-        "SEPA",
-        "Bank Transfer",
-        "PayPal",
-        "QR platby"
-      ],
-      "gambling_preference": "slots_sports",
-      "peak_hours": "19:00-22:00",
-      "mobile_usage": "80%"
+      "cultural_elements": ["Slovak traditions", "mountains", "folk music"],
+      "forbidden_elements": ["political content", "historical references"]
     },
     {
-      "id": "13",
-      "country_code": "AT",
-      "name": "Austria",
+      "id": "geo_at",
+      "country": "AT",
       "language": "de-AT",
       "currency": "EUR",
-      "timezone": "Europe/Vienna",
-      "top_banks": [
-        "Erste Bank",
-        "Bank Austria",
-        "Raiffeisen Bank",
-        "BAWAG P.S.K."
-      ],
-      "payment_methods": [
-        "SEPA",
-        "eps",
-        "PayPal",
-        "Bank Transfer"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "19:00-22:00",
-      "mobile_usage": "88%"
+      "cultural_elements": ["Austrian culture", "classical music", "Alps", "coffee houses"],
+      "forbidden_elements": ["political content", "historical Nazi references"]
     },
     {
-      "id": "14",
-      "country_code": "BE",
-      "name": "Belgium",
-      "language": "nl-BE",
+      "id": "geo_be",
+      "country": "BE",
+      "language": "nl",
       "currency": "EUR",
-      "timezone": "Europe/Brussels",
-      "top_banks": [
-        "KBC Bank",
-        "BNP Paribas Fortis",
-        "ING Belgium",
-        "Belfius"
-      ],
-      "payment_methods": [
-        "SEPA",
-        "Bancontact",
-        "PayPal",
-        "Bank Transfer"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "20:00-23:00",
-      "mobile_usage": "90%"
+      "cultural_elements": ["Belgian beer", "chocolate", "waffles", "comics"],
+      "forbidden_elements": ["language conflicts", "political division"]
     },
     {
-      "id": "15",
-      "country_code": "KZ",
-      "name": "Kazakhstan",
-      "language": "kk-KZ",
+      "id": "geo_kz",
+      "country": "KZ", 
+      "language": "kk",
       "currency": "KZT",
-      "timezone": "Asia/Almaty",
-      "top_banks": [
-        "Kaspi Bank",
-        "Halyk Bank",
-        "ForteBank",
-        "Sberbank Kazakhstan"
-      ],
-      "payment_methods": [
-        "Kaspi Pay",
-        "Bank Transfer",
-        "Alipay Kazakhstan",
-        "QIWI"
-      ],
-      "gambling_preference": "slots_sports",
-      "peak_hours": "20:00-01:00",
-      "mobile_usage": "85%"
+      "cultural_elements": ["Kazakh nomadic culture", "traditional patterns", "horseback culture"],
+      "forbidden_elements": ["political content", "Russian dominance references"]
     },
     {
-      "id": "16",
-      "country_code": "KG",
-      "name": "Kyrgyzstan",
-      "language": "ky-KG",
+      "id": "geo_kg",
+      "country": "KG",
+      "language": "ky",
       "currency": "KGS",
-      "timezone": "Asia/Bishkek",
-      "top_banks": [
-        "Optima Bank",
-        "RSK Bank",
-        "Demir Kyrgyz International Bank",
-        "Bank Asia"
-      ],
-      "payment_methods": [
-        "Bank Transfer",
-        "ELCARD",
-        "O! Money",
-        "Mbank"
-      ],
-      "gambling_preference": "slots_live_casino",
-      "peak_hours": "19:00-23:00",
-      "mobile_usage": "78%"
+      "cultural_elements": ["Kyrgyz mountains", "nomadic traditions", "yurts"],
+      "forbidden_elements": ["political instability", "ethnic conflicts"]
     },
     {
-      "id": "17",
-      "country_code": "TR",
-      "name": "Turkey",
-      "language": "tr-TR",
-      "currency": "TRY",
-      "timezone": "Europe/Istanbul",
-      "top_banks": [
-        "Ziraat Bankası",
-        "İş Bankası",
-        "Garanti BBVA",
-        "Akbank"
-      ],
-      "payment_methods": [
-        "Havale/EFT",
-        "Papara",
-        "ininal",
-        "BKM Express"
-      ],
-      "gambling_preference": "slots_live_casino",
-      "peak_hours": "21:00-01:00",
-      "mobile_usage": "87%"
+      "id": "geo_tr",
+      "country": "TR",
+      "language": "tr",
+      "currency": "TRY", 
+      "cultural_elements": ["Turkish culture", "Ottoman heritage", "tea culture", "hospitality"],
+      "forbidden_elements": ["political content", "Kurdish issues", "religious extremism"]
     }
   ]
 }
