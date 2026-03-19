@@ -21,18 +21,18 @@ async function runDemo() {
   };
 
   const geo = {
-    id: 'demo_geo_ua',
-    country: 'UA',
-    language: 'uk',
-    currency: 'UAH',
-    cultural_elements: ['Ukrainian culture', 'national colors'],
-    forbidden_elements: ['political content']
+    id: 'geo_pl',
+    country: 'PL',
+    language: 'pl',
+    currency: 'PLN',
+    cultural_elements: ['Polish traditions', 'red and white colors', 'Catholic culture'],
+    forbidden_elements: ['political content', 'religious mockery']
   };
 
   // Test different scenarios
   const scenarios = [
     {
-      name: '🎰 Ukrainian Casino - Medium Aggression - Square Format',
+      name: '🎰 Polish Casino - Medium Aggression - Square Format',
       input: {
         slot,
         geo,
@@ -46,7 +46,14 @@ async function runDemo() {
       name: '📱 German Sports - High Aggression - Vertical Format',
       input: {
         slot: { ...slot, name: 'Sports Betting Pro', category: 'sports' },
-        geo: { ...geo, country: 'DE', language: 'de', currency: 'EUR' },
+        geo: { 
+          id: 'geo_de',
+          country: 'DE', 
+          language: 'de', 
+          currency: 'EUR',
+          cultural_elements: ['German precision', 'beer culture', 'Oktoberfest', 'football'],
+          forbidden_elements: ['political content', 'historical sensitive imagery']
+        },
         aggression_level: 'hard' as const,
         format: '9:16' as const,
         variations_count: 2,
