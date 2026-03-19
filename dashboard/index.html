@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DewClaw Project Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header .status {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .metric-card h3 {
+            color: #4f46e5;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .metric-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .metric-card .change {
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        .change.positive { color: #10b981; }
+        .change.negative { color: #ef4444; }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .column {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .column-header {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #374151;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .column-count {
+            background: #e5e7eb;
+            color: #6b7280;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .issue-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .issue-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .issue-title {
+            font-weight: 500;
+            color: #111827;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+
+        .issue-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        .issue-number {
+            color: #4f46e5;
+            font-weight: 500;
+        }
+
+        .actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            color: #4f46e5;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            background: white;
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.1rem;
+            margin: 20px 0;
+        }
+
+        .error {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .board {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header .status {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Column specific colors */
+        .column[data-state="planning"] .column-header { color: #7c3aed; }
+        .column[data-state="todo"] .column-header { color: #2563eb; }
+        .column[data-state="doing"] .column-header { color: #dc2626; }
+        .column[data-state="review"] .column-header { color: #ea580c; }
+        .column[data-state="done"] .column-header { color: #16a34a; }
+
+        .column[data-state="planning"] .column-count { background: #ede9fe; color: #7c3aed; }
+        .column[data-state="todo"] .column-count { background: #dbeafe; color: #2563eb; }
+        .column[data-state="doing"] .column-count { background: #fee2e2; color: #dc2626; }
+        .column[data-state="review"] .column-count { background: #fed7aa; color: #ea580c; }
+        .column[data-state="done"] .column-count { background: #dcfce7; color: #16a34a; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>🎯 DewClaw Project Dashboard</h1>
+            <div id="status" class="status">
+                <span>🔄 Loading...</span>
+            </div>
+        </div>
+
+        <div class="metrics">
+            <div class="metric-card">
+                <h3>📊 Total Issues</h3>
+                <div class="value" id="total-issues">-</div>
+                <div class="change" id="total-issues-change"></div>
+            </div>
+            <div class="metric-card">
+                <h3>🎨 Creatives Today</h3>
+                <div class="value" id="creatives-today">-</div>
+                <div class="change positive" id="creatives-change">+12 від вчора</div>
+            </div>
+            <div class="metric-card">
+                <h3>💰 Cost per Creative</h3>
+                <div class="value" id="cost-per-creative">-</div>
+                <div class="change" id="cost-change"></div>
+            </div>
+            <div class="metric-card">
+                <h3>📈 CTR Average</h3>
+                <div class="value" id="ctr-average">-</div>
+                <div class="change" id="ctr-change"></div>
+            </div>
+            <div class="metric-card">
+                <h3>🚀 Deploy Status</h3>
+                <div class="value" id="deploy-status">✅</div>
+                <div class="change" id="deploy-time">Last: 2h ago</div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="action-btn" onclick="createIssue()">➕ Create Issue</button>
+            <button class="action-btn" onclick="generateCreative()">🎨 Generate Creative</button>
+            <button class="action-btn" onclick="refreshData()">🔄 Refresh</button>
+            <button class="action-btn" onclick="openGitHub()">📋 GitHub</button>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            🔄 Updating data...
+        </div>
+
+        <div id="error" class="error" style="display: none;">
+            ❌ Error loading data. Check GitHub token and API limits.
+        </div>
+
+        <div class="board">
+            <div class="column" data-state="planning">
+                <div class="column-header">
+                    📋 Planning
+                    <span class="column-count" id="planning-count">0</span>
+                </div>
+                <div id="planning-issues" class="issues-container"></div>
+            </div>
+
+            <div class="column" data-state="todo">
+                <div class="column-header">
+                    📝 To Do
+                    <span class="column-count" id="todo-count">0</span>
+                </div>
+                <div id="todo-issues" class="issues-container"></div>
+            </div>
+
+            <div class="column" data-state="doing">
+                <div class="column-header">
+                    🔥 Doing
+                    <span class="column-count" id="doing-count">0</span>
+                </div>
+                <div id="doing-issues" class="issues-container"></div>
+            </div>
+
+            <div class="column" data-state="review">
+                <div class="column-header">
+                    👁 Review
+                    <span class="column-count" id="review-count">0</span>
+                </div>
+                <div id="review-issues" class="issues-container"></div>
+            </div>
+
+            <div class="column" data-state="done">
+                <div class="column-header">
+                    ✅ Done
+                    <span class="column-count" id="done-count">0</span>
+                </div>
+                <div id="done-issues" class="issues-container"></div>
+            </div>
+        </div>
+
+        <div class="last-updated">
+            Last updated: <span id="last-updated">Never</span>
+        </div>
+    </div>
+
+    <script>
+        const GITHUB_TOKEN = localStorage.getItem('github_token') || '';
+        const REPO_OWNER = 'maxxxximus';
+        const REPO_NAME = 'dewclawbot';
+        
+        let issues = [];
+        let metrics = {
+            creativesToday: 0,
+            costPerCreative: '$0.15',
+            ctrAverage: '2.8%',
+            deployStatus: '✅'
+        };
+
+        // State mappings for different label patterns
+        const STATE_MAPPINGS = {
+            'Planning': 'planning',
+            'Refining': 'planning',
+            'To Do': 'todo',
+            'DEV': 'doing',
+            'Doing': 'doing',
+            'Review': 'review',
+            'REVIEW': 'review',
+            'Done': 'done'
+        };
+
+        async function fetchIssues() {
+            if (!GITHUB_TOKEN) {
+                console.log('No GitHub token found. Using mock data.');
+                return getMockData();
+            }
+
+            try {
+                showLoading(true);
+                hideError();
+                
+                const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues?state=all&per_page=100`, {
+                    headers: {
+                        'Authorization': `token ${GITHUB_TOKEN}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                return data.filter(issue => !issue.pull_request); // Filter out PRs
+            } catch (error) {
+                console.error('Error fetching issues:', error);
+                showError(`Error fetching data: ${error.message}`);
+                return getMockData();
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        function getMockData() {
+            return [
+                {
+                    number: 27,
+                    title: 'Створити легкий Project Dashboard',
+                    labels: [{ name: 'DEV' }],
+                    html_url: `https://github.com/${REPO_OWNER}/${REPO_NAME}/issues/27`,
+                    created_at: new Date().toISOString()
+                },
+                {
+                    number: 26,
+                    title: 'Add Gemini integration tests',
+                    labels: [{ name: 'Review' }],
+                    html_url: `https://github.com/${REPO_OWNER}/${REPO_NAME}/issues/26`,
+                    created_at: new Date(Date.now() - 86400000).toISOString()
+                },
+                {
+                    number: 25,
+                    title: 'Optimize image generation performance',
+                    labels: [{ name: 'Planning' }],
+                    html_url: `https://github.com/${REPO_OWNER}/${REPO_NAME}/issues/25`,
+                    created_at: new Date(Date.now() - 172800000).toISOString()
+                }
+            ];
+        }
+
+        function getIssueState(issue) {
+            // Check labels for state
+            for (const label of issue.labels) {
+                const state = STATE_MAPPINGS[label.name];
+                if (state) return state;
+            }
+            
+            // Default logic
+            if (issue.state === 'closed') return 'done';
+            return 'planning';
+        }
+
+        function groupIssuesByState(issues) {
+            const grouped = {
+                planning: [],
+                todo: [],
+                doing: [],
+                review: [],
+                done: []
+            };
+
+            issues.forEach(issue => {
+                const state = getIssueState(issue);
+                grouped[state].push(issue);
+            });
+
+            return grouped;
+        }
+
+        function renderIssues(groupedIssues) {
+            Object.keys(groupedIssues).forEach(state => {
+                const container = document.getElementById(`${state}-issues`);
+                const countElement = document.getElementById(`${state}-count`);
+                const issues = groupedIssues[state];
+                
+                countElement.textContent = issues.length;
+                
+                container.innerHTML = issues.map(issue => `
+                    <div class="issue-card" onclick="openIssue('${issue.html_url}')">
+                        <div class="issue-title">${issue.title}</div>
+                        <div class="issue-meta">
+                            <span class="issue-number">#${issue.number}</span>
+                            <span>${formatDate(issue.created_at)}</span>
+                        </div>
+                    </div>
+                `).join('');
+            });
+        }
+
+        function updateMetrics(issues) {
+            document.getElementById('total-issues').textContent = issues.length;
+            document.getElementById('creatives-today').textContent = metrics.creativesToday;
+            document.getElementById('cost-per-creative').textContent = metrics.costPerCreative;
+            document.getElementById('ctr-average').textContent = metrics.ctrAverage;
+            document.getElementById('deploy-status').textContent = metrics.deployStatus;
+
+            // Update status
+            const openIssues = issues.filter(i => i.state === 'open').length;
+            const closedIssues = issues.filter(i => i.state === 'closed').length;
+            
+            document.getElementById('status').innerHTML = `
+                <span>📂 ${openIssues} Open</span>
+                <span>✅ ${closedIssues} Closed</span>
+                <span>🔄 Auto-refresh: ON</span>
+            `;
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffInHours = Math.floor((now - date) / (1000 * 60 * 60));
+            
+            if (diffInHours < 1) return 'just now';
+            if (diffInHours < 24) return `${diffInHours}h ago`;
+            
+            const diffInDays = Math.floor(diffInHours / 24);
+            if (diffInDays < 7) return `${diffInDays}d ago`;
+            
+            return date.toLocaleDateString();
+        }
+
+        function showLoading(show) {
+            document.getElementById('loading').style.display = show ? 'block' : 'none';
+        }
+
+        function showError(message) {
+            const errorElement = document.getElementById('error');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+
+        function hideError() {
+            document.getElementById('error').style.display = 'none';
+        }
+
+        async function refreshData() {
+            const fetchedIssues = await fetchIssues();
+            issues = fetchedIssues;
+            
+            const groupedIssues = groupIssuesByState(issues);
+            renderIssues(groupedIssues);
+            updateMetrics(issues);
+            
+            document.getElementById('last-updated').textContent = new Date().toLocaleString();
+        }
+
+        // Action functions
+        function createIssue() {
+            window.open(`https://github.com/${REPO_OWNER}/${REPO_NAME}/issues/new`, '_blank');
+        }
+
+        function generateCreative() {
+            // This would integrate with your creative generation system
+            alert('🎨 Creative generation started! Check notifications for results.');
+            metrics.creativesToday += 1;
+            document.getElementById('creatives-today').textContent = metrics.creativesToday;
+        }
+
+        function openIssue(url) {
+            window.open(url, '_blank');
+        }
+
+        function openGitHub() {
+            window.open(`https://github.com/${REPO_OWNER}/${REPO_NAME}`, '_blank');
+        }
+
+        // Initialize
+        async function init() {
+            // Check for GitHub token
+            if (!GITHUB_TOKEN) {
+                const token = prompt('Enter your GitHub Personal Access Token (will be saved locally):');
+                if (token) {
+                    localStorage.setItem('github_token', token);
+                    location.reload();
+                    return;
+                }
+            }
+
+            // Load initial data
+            await refreshData();
+            
+            // Set up auto-refresh every 30 seconds
+            setInterval(refreshData, 30000);
+        }
+
+        // Start the app
+        init();
+    </script>
+</body>
+</html>

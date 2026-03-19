@@ -12,7 +12,9 @@
     "clean": "rm -rf dist",
     "generate": "ts-node src/generator/cli.ts",
     "generate:batch": "ts-node src/generator/cli.ts batch",
-    "generate:check": "ts-node src/generator/cli.ts check-api"
+    "generate:check": "ts-node src/generator/cli.ts check-api",
+    "dashboard": "node dashboard/server.js",
+    "dashboard:start": "./start-dashboard.sh"
   },
   "keywords": [
     "prompts",
