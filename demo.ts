@@ -21,12 +21,12 @@ async function runDemo() {
   };
 
   const geo = {
-    id: 'geo_pl',
-    country: 'PL',
-    language: 'pl',
-    currency: 'PLN',
-    cultural_elements: ['Polish traditions', 'red and white colors', 'Catholic culture'],
-    forbidden_elements: ['political content', 'religious mockery']
+    id: 'geo_nl',
+    country: 'NL',
+    language: 'nl',
+    currency: 'EUR',
+    cultural_elements: ['Dutch pragmatism', 'orange color', 'windmills', 'cycling culture'],
+    forbidden_elements: ['excessive gambling imagery', 'religious content']
   };
 
   // Test different scenarios

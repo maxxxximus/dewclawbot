@@ -19,12 +19,12 @@ describe('Prompter', () => {
     };
 
     testGeo = {
-      id: 'geo_pl',
-      country: 'PL',
-      language: 'pl',
-      currency: 'PLN',
-      cultural_elements: ['Polish traditions', 'red and white colors'],
-      forbidden_elements: ['political content', 'religious mockery']
+      id: 'geo_nl',
+      country: 'NL',
+      language: 'nl',
+      currency: 'EUR',
+      cultural_elements: ['Dutch pragmatism', 'orange color'],
+      forbidden_elements: ['excessive gambling imagery', 'religious content']
     };
   });
 

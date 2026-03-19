@@ -23,12 +23,12 @@ const exampleSlots = [
 // Example geo data (would come from database)
 const exampleGeos = [
   {
-    id: 'geo_pl',
-    country: 'PL',
-    language: 'pl',
-    currency: 'PLN',
-    cultural_elements: ['Polish traditions', 'red and white colors', 'Catholic culture'],
-    forbidden_elements: ['political content', 'religious mockery']
+    id: 'geo_nl',
+    country: 'NL',
+    language: 'nl',
+    currency: 'EUR',
+    cultural_elements: ['Dutch pragmatism', 'orange color', 'windmills', 'cycling culture'],
+    forbidden_elements: ['excessive gambling imagery', 'religious content']
   },
   {
     id: 'geo_de',
@@ -37,6 +37,14 @@ const exampleGeos = [
     currency: 'EUR',
     cultural_elements: ['German precision', 'beer culture', 'Oktoberfest', 'football'],
     forbidden_elements: ['political content', 'historical sensitive imagery']
+  },
+  {
+    id: 'geo_pl',
+    country: 'PL',
+    language: 'pl',
+    currency: 'PLN',
+    cultural_elements: ['Polish traditions', 'red and white colors', 'Catholic culture'],
+    forbidden_elements: ['political content', 'religious mockery']
   }
 ];
 
@@ -44,7 +52,7 @@ const exampleGeos = [
 export async function demonstratePromptGeneration() {
   console.log('🎯 DEWCLAWBOT PROMPTER - Demonstration\n');
 
-  // Example 1: Generate prompts for Polish casino audience
+  // Example 1: Generate prompts for Dutch casino audience
   const input1: PromptGenerationInput = {
     slot: exampleSlots[0],
     geo: exampleGeos[0],
@@ -54,7 +62,7 @@ export async function demonstratePromptGeneration() {
     api_type: 'nano_banana_pro'
   };
 
-  console.log('📱 Generating prompts for Polish casino audience...');
+  console.log('📱 Generating prompts for Dutch casino audience...');
   const result1 = await prompter.generatePrompts(input1);
   console.log(`Generated ${result1.total_generated} prompts in ${result1.generation_time_ms}ms`);
   
