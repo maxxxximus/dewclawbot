@@ -1,44 +1,44 @@
 # QC Reviewer
 
-Автоматична система контролю якості для креативів в gambling сфері. Аналізує згенеровані креативи та класифікує їх як pass/fail з детальним фідбеком.
+Automated quality control system for gambling creative assets. Analyzes generated creatives and classifies them as pass/fail with detailed feedback.
 
-## Функції
+## Features
 
-- **Автоматичний QC**: Класифікація pass/fail на основі кількох критеріїв якості
-- **Детальний фідбек**: Конкретні проблеми та рекомендації для покращення
-- **Пакетна обробка**: Обробка цілих директорій та автоматичне сортування результатів
-- **Vision AI**: Використовує Claude 3.5 Vision для точної оцінки якості
-- **Висока точність**: Ціль >85% точності порівняно з ручною перевіркою
+- **Automated QC**: Pass/fail classification based on multiple quality criteria
+- **Detailed Feedback**: Specific issues and recommendations for improvements
+- **Batch Processing**: Process entire directories and automatically sort results
+- **Vision AI**: Uses Claude 3.5 Vision for accurate quality assessment
+- **High Accuracy**: Target >85% accuracy compared to manual review
 
-## Критерії якості
+## Quality Checks
 
-1. **Читабельність тексту**: Весь текст чітко читається, не обрізаний і не спотворений
-2. **Відповідність слоту**: Креатив відповідає запитаному слот-гейму
-3. **Правильний формат**: Правильне співвідношення сторін (1080x1080, 9:16, тощо)
-4. **Виявлення артефактів**: Немає артефактів генерації або неможливих елементів
-5. **Рівень агресії**: Візуальна інтенсивність відповідає запиту (easy/medium/hard)
-6. **Баланс кольорів**: Кольори не занадто тьмяні/блідлі або перенасичені
+1. **Text Readability**: All text is clearly readable, not cropped or distorted
+2. **Slot Matching**: Creative matches the requested slot game
+3. **Format Compliance**: Correct aspect ratio (1080x1080, 9:16, etc)
+4. **Artifact Detection**: No generation artifacts or impossible elements
+5. **Aggression Level**: Visual intensity matches the request (easy/medium/hard)
+6. **Color Balance**: Colors are not too dim/washed out or overly saturated
 
-## Встановлення
+## Installation
 
 ```bash
 pip install -r requirements.txt
 export ANTHROPIC_API_KEY=your_api_key
 ```
 
-## Використання
+## Usage
 
-### Перевірка одного зображення
+### Single Image Review
 
 ```bash
-# Базова перевірка
+# Basic review
 python qc_reviewer.py single creative.png
 
-# З конкретними вимогами
+# With specific requirements
 python qc_reviewer.py single creative.png --slot "Sweet Bonanza" --format "1080x1080" --aggression medium
 ```
 
-**Приклад виходу:**
+**Example Output:**
 ```json
 {
   "status": "pass",
@@ -50,24 +50,24 @@ python qc_reviewer.py single creative.png --slot "Sweet Bonanza" --format "1080x
   "aggression_appropriate": true,
   "colors_balanced": true,
   "issues": [],
-  "feedback": "Усі перевірки якості пройдено. Креатив відповідає високим стандартам."
+  "feedback": "All quality checks passed. Creative meets high standards."
 }
 ```
 
-### Пакетна обробка
+### Batch Processing
 
 ```bash
-# Обробити всю директорію
+# Process entire directory
 python qc_reviewer.py batch ./generated_creatives
 
-# Користувацькі директорії виходу
+# Custom output directories
 python qc_reviewer.py batch ./generated_creatives --approved ./good --rejected ./bad
 
-# З конкретними вимогами для всіх зображень
+# With specific requirements for all images
 python qc_reviewer.py batch ./generated_creatives --slot "Gates of Olympus" --format "9:16" --aggression hard
 ```
 
-**Структура виходу пакетної обробки:**
+**Batch Output Structure:**
 ```
 approved/
 ├── creative1.png
@@ -81,15 +81,38 @@ rejected/
 └── creative4_feedback.json
 ```
 
+**Batch Results:**
+```json
+{
+  "total": 5,
+  "approved": 3,
+  "rejected": 2,
+  "details": [
+    {
+      "filename": "creative1.png",
+      "status": "pass",
+      "score": 0.95,
+      "issues": []
+    },
+    {
+      "filename": "creative2.png", 
+      "status": "fail",
+      "score": 0.67,
+      "issues": ["Text partially cropped", "Colors too dim"]
+    }
+  ]
+}
+```
+
 ## Python API
 
 ```python
 from qc_reviewer import QCReviewer
 
-# Ініціалізувати ревʼюєр
+# Initialize reviewer
 reviewer = QCReviewer()
 
-# Перевірити одне зображення
+# Review single image
 result = reviewer.review(
     "creative.png",
     slot_request="Sweet Bonanza",
@@ -97,11 +120,11 @@ result = reviewer.review(
     target_aggression="medium"
 )
 
-print(f"Статус: {result.status}")
-print(f"Рейтинг: {result.score}")
-print(f"Проблеми: {result.issues}")
+print(f"Status: {result.status}")
+print(f"Score: {result.score}")
+print(f"Issues: {result.issues}")
 
-# Пакетна обробка
+# Batch processing
 results = reviewer.process_batch(
     input_dir="./generated",
     approved_dir="./approved",
@@ -109,82 +132,96 @@ results = reviewer.process_batch(
     slot_request="Gates of Olympus"
 )
 
-print(f"Схвалено: {results['approved']}/{results['total']}")
+print(f"Approved: {results['approved']}/{results['total']}")
 ```
 
-## Система оцінювання якості
+## Quality Scoring
 
-QC система використовує зважений підхід до оцінювання:
+The QC system uses a weighted scoring approach:
 
-- Кожна перевірка якості бінарна: пройшов (1.0) або провалив (0.0)
-- Загальний рейтинг = (пройдені_перевірки / всі_перевірки)
-- **Поріг проходження: ≥85% (0.85)**
-- **Поріг провалу: <85% (0.85)**
+- Each quality check is binary: pass (1.0) or fail (0.0)
+- Overall score = (passed_checks / total_checks)
+- **Pass threshold: ≥85% (0.85)**
+- **Fail threshold: <85% (0.85)**
 
-## Детальні критерії якості
+## Quality Criteria Details
 
-### Читабельність тексту
-- Всі текстові елементи повністю видимі
-- Немає тексту, обрізаного по краях
-- Розмір шрифту підходящий для формату
-- Хороший контраст на тлі
-- Немає елементів тексту, що перекриваються
+### Text Readability
+- All text elements are fully visible
+- No text cut off at edges
+- Font size appropriate for format
+- Good contrast against background
+- No overlapping text elements
 
-### Відповідність слоту
-- Назва гри відповідає запитаному слоту
-- Візуальний стиль узгоджується з темою слоту
-- Відповідні символи/елементи для гри
+### Slot Matching
+- Game title matches requested slot
+- Visual style consistent with slot theme
+- Appropriate symbols/elements for the game
 
-### Відповідність формату
-- Правильне співвідношення сторін для цільового формату
-- Немає чорних смуг або неочікуваних відступів
-- Належна роздільна здатність для передбаченого використання
+### Format Compliance
+- Correct aspect ratio for target format
+- No black bars or unexpected padding
+- Proper resolution for intended use
 
-### Виявлення артефактів
-- Немає артефактів AI генерації
-- Немає неможливих/фізично неправильних елементів
-- Немає спотворених облич або обʼєктів
-- Послідовний стиль мистецтва всюди
+### Artifact Detection
+- No AI generation artifacts
+- No impossible/physically incorrect elements
+- No distorted faces or objects
+- Consistent art style throughout
 
-### Рівень агресії
-- **Easy**: Спокійні, тонкі, пастельні кольори, ніжні повідомлення
-- **Medium**: Помірна енергія, збалансовані кольори, стандартна казино естетика
-- **Hard**: Інтенсивні, яскраві, яскраві кольори, агресивні повідомлення
+### Aggression Level
+- **Easy**: Calm, subtle, pastel colors, gentle messaging
+- **Medium**: Moderate energy, balanced colors, standard casino aesthetics
+- **Hard**: Intense, flashy, bright colors, aggressive messaging
 
-### Баланс кольорів
-- Кольори яскраві, але не перенасичені
-- Хороший контраст між елементами
-- Не занадто темні або вицвілі
-- Відповідні для стандартів креативів gambling
+### Color Balance
+- Colors are vibrant but not oversaturated
+- Good contrast between elements
+- Not too dark or washed out
+- Appropriate for gambling creative standards
 
-## Коди виходу
+## Exit Codes
 
-При використанні CLI:
-- `0`: Перевірка пройшла (single режим) або завершилась успішно (batch режим)
-- `1`: Перевірка провалилась (single режим) або виникла помилка
+When using CLI:
+- `0`: Review passed (single mode) or completed successfully (batch mode)
+- `1`: Review failed (single mode) or error occurred
 
-## Продуктивність
+## Performance
 
-- **Швидкість**: ~2-3 секунди на зображення
-- **Точність**: >85% vs ручна перевірка
-- **Підтримувані формати**: JPG, PNG, WebP, GIF
-- **Рекомендований розмір пакету**: 50-100 зображень
+- **Speed**: ~2-3 seconds per image
+- **Accuracy**: >85% vs manual review
+- **Supported formats**: JPG, PNG, WebP, GIF
+- **Recommended batch size**: 50-100 images
 
-## Інтеграція
+## Error Handling
 
-Легко інтегрується в існуючі робочі процеси:
+The system handles various error conditions:
+- Invalid image formats
+- Missing API keys
+- Network issues
+- Invalid responses from AI
+
+All errors include detailed messages and suggestions for resolution.
+
+## Integration
+
+Easy to integrate into existing workflows:
 
 ```bash
-# У вашому пайплайні генерації креативів
+# In your creative generation pipeline
 python generate_creatives.py --output ./generated
 python qc_reviewer.py batch ./generated --approved ./ready --rejected ./needs_work
 python deploy_creatives.py --input ./ready
 ```
 
-## Покращення точності
+## Contributing
 
-Для покращення точності QC:
-1. Тестуйте з різноманітними зразками креативів
-2. Налаштовуйте промпти в методі `_get_qc_prompt()`
-3. Оновлюйте пороги оцінювання на основі даних продуктивності
-4. Додавайте нові перевірки якості за потреби
+To improve QC accuracy:
+1. Test with diverse creative samples
+2. Adjust prompts in `_get_qc_prompt()` method
+3. Update scoring thresholds based on performance data
+4. Add new quality checks as needed
+
+## License
+
+Same as project license.

@@ -6,12 +6,12 @@ This script shows the integration patterns without requiring actual dependencies
 
 def demo_single_review():
     """Demonstrate single image review"""
-    print("=== Перевірка одного зображення ===")
+    print("=== Single Image QC Review Demo ===")
     print()
-    print("Команда:")
+    print("Command:")
     print("python qc_reviewer.py single creative.png --slot 'Sweet Bonanza' --format '1080x1080' --aggression medium")
     print()
-    print("Очікуваний вихід:")
+    print("Expected Output:")
     print("""{
   "status": "pass",
   "score": 0.92,
@@ -22,21 +22,21 @@ def demo_single_review():
   "aggression_appropriate": true,
   "colors_balanced": true,
   "issues": [],
-  "feedback": "Усі перевірки якості пройдено. Текст чіткий і читабельний, слот відповідає 'Sweet Bonanza', формат правильний 1080x1080, артефактів генерації не виявлено, рівень агресії підходящий для medium налаштування, кольори добре збалансовані."
+  "feedback": "All quality checks passed. Text is clear and readable, slot matches 'Sweet Bonanza', format is correct 1080x1080, no generation artifacts detected, aggression level appropriate for medium setting, colors well balanced."
 }""")
     print()
-    print("Код виходу: 0 (пройшов)")
+    print("Exit code: 0 (pass)")
     print()
 
 
 def demo_single_review_fail():
     """Demonstrate failed review"""
-    print("=== Провалена перевірка якості ===")
+    print("=== Failed QC Review Demo ===")
     print()
-    print("Команда:")
+    print("Command:")
     print("python qc_reviewer.py single bad_creative.png --slot 'Gates of Olympus' --format '9:16' --aggression hard")
     print()
-    print("Очікуваний вихід:")
+    print("Expected Output:")
     print("""{
   "status": "fail",
   "score": 0.67,
@@ -47,22 +47,22 @@ def demo_single_review_fail():
   "aggression_appropriate": false,
   "colors_balanced": false,
   "issues": [
-    "Текст частково обрізаний по нижньому краю",
-    "Рівень агресії занадто низький для налаштування 'hard' - потрібні більш інтенсивні візуальні ефекти",
-    "Кольори виглядають вицвілими і занадто тьмяними"
+    "Text partially cropped at bottom edge",
+    "Aggression level too low for 'hard' setting - needs more intense visuals",
+    "Colors appear washed out and too dim"
   ],
-  "feedback": "Креатив не пройшов QC з рейтингом 0.67. Основні проблеми: проблеми читабельності тексту з обрізанням нижнього тексту, недостатній рівень візуальної агресії для вимог 'hard', та проблеми балансу кольорів із загальною тьмяністю."
+  "feedback": "Creative failed QC with score 0.67. Main issues: text readability problems with bottom text being cropped, visual aggression level insufficient for 'hard' requirement, and color balance issues with overall dimness."
 }""")
     print()
-    print("Код виходу: 1 (провалено)")
+    print("Exit code: 1 (fail)")
     print()
 
 
 def demo_batch_processing():
     """Demonstrate batch processing workflow"""
-    print("=== Пакетна обробка ===")
+    print("=== Batch Processing Demo ===")
     print()
-    print("Структура директорії до:")
+    print("Directory Structure Before:")
     print("""generated/
 ├── creative1.png
 ├── creative2.png
@@ -70,10 +70,10 @@ def demo_batch_processing():
 ├── creative4.png
 └── creative5.png""")
     print()
-    print("Команда:")
+    print("Command:")
     print("python qc_reviewer.py batch generated --approved good_creatives --rejected needs_work --slot 'Sweet Bonanza' --format '1080x1080' --aggression medium")
     print()
-    print("Очікуваний вихід:")
+    print("Expected Output:")
     print("""{
   "total": 5,
   "approved": 3,
@@ -89,7 +89,7 @@ def demo_batch_processing():
       "filename": "creative2.png",
       "status": "fail", 
       "score": 0.75,
-      "issues": ["Текст трохи розмитий", "Формат не точно 1080x1080"]
+      "issues": ["Text slightly blurry", "Format not exactly 1080x1080"]
     },
     {
       "filename": "creative3.png",
@@ -101,7 +101,7 @@ def demo_batch_processing():
       "filename": "creative4.png",
       "status": "fail",
       "score": 0.67,
-      "issues": ["Неправильна назва слоту", "Занадто яскраві кольори"]
+      "issues": ["Slot name incorrect", "Colors too bright"]
     },
     {
       "filename": "creative5.png",
@@ -112,9 +112,9 @@ def demo_batch_processing():
   ]
 }
 
-Підсумок: 3 схвалено, 2 відхилено, 5 всього""")
+Summary: 3 approved, 2 rejected, 5 total""")
     print()
-    print("Структура директорії після:")
+    print("Directory Structure After:")
     print("""good_creatives/
 ├── creative1.png
 ├── creative3.png
@@ -127,35 +127,35 @@ needs_work/
 └── creative4_feedback.json
 
 generated/
-(порожня)""")
+(empty)""")
     print()
 
 
 def demo_integration():
     """Demonstrate integration into creative generation pipeline"""
-    print("=== Інтеграція в пайплайн ===")
+    print("=== Pipeline Integration Demo ===")
     print()
-    print("Пайплайн генерації креативів:")
+    print("Creative Generation Pipeline:")
     print("1. python generate_creatives.py --slot 'Sweet Bonanza' --count 50 --output ./generated")
     print("2. python qc_reviewer.py batch ./generated --approved ./approved --rejected ./rejected")
     print("3. python deploy_creatives.py --input ./approved --platform facebook")
     print("4. python analyze_rejections.py --input ./rejected --report ./qc_report.json")
     print()
-    print("Це забезпечує, що лише високоякісні креативи потрапляють у production!")
+    print("This ensures only high-quality creatives make it to production!")
     print()
 
 
 def demo_python_api():
     """Demonstrate Python API usage"""
-    print("=== Python API ===")
+    print("=== Python API Demo ===")
     print()
-    print("Код:")
+    print("Code:")
     print("""from qc_reviewer import QCReviewer
 
-# Ініціалізація ревʼюєра
+# Initialize reviewer
 reviewer = QCReviewer()
 
-# Перевірка одного зображення
+# Single review
 result = reviewer.review(
     "creative.png",
     slot_request="Sweet Bonanza",
@@ -163,14 +163,14 @@ result = reviewer.review(
     target_aggression="medium"
 )
 
-print(f"Статус: {result.status}")
-print(f"Рейтинг: {result.score:.2f}")
+print(f"Status: {result.status}")
+print(f"Score: {result.score:.2f}")
 if result.issues:
-    print("Знайдені проблеми:")
+    print("Issues found:")
     for issue in result.issues:
         print(f"  - {issue}")
 
-# Пакетна обробка
+# Batch processing
 results = reviewer.process_batch(
     input_dir="./generated",
     approved_dir="./approved", 
@@ -180,13 +180,13 @@ results = reviewer.process_batch(
     target_aggression="hard"
 )
 
-print(f"Результати пакету: {results['approved']}/{results['total']} схвалено")""")
+print(f"Batch results: {results['approved']}/{results['total']} approved")""")
     print()
 
 
 def main():
     """Run all demos"""
-    print("QC REVIEWER ДЕМОНСТРАЦІЯ")
+    print("QC REVIEWER DEMONSTRATION")
     print("=" * 50)
     print()
     
@@ -196,20 +196,20 @@ def main():
     demo_integration()
     demo_python_api()
     
-    print("=== Інструкції з встановлення ===")
-    print("1. Встановити залежності:")
+    print("=== Installation Instructions ===")
+    print("1. Install dependencies:")
     print("   pip install -r requirements.txt")
     print()
-    print("2. Встановити API ключ:")
+    print("2. Set API key:")
     print("   export ANTHROPIC_API_KEY=your_key_here")
     print()
-    print("3. Тестувати з зразком зображення:")
+    print("3. Test with sample image:")
     print("   python qc_reviewer.py single test_creative.png")
     print()
-    print("4. Обробити пакет:")
+    print("4. Process batch:")
     print("   python qc_reviewer.py batch ./my_creatives")
     print()
-    print("Готовий забезпечити відповідність ваших креативів високим стандартам якості! 🎯")
+    print("Ready to ensure your creatives meet high quality standards! 🎯")
 
 
 if __name__ == "__main__":
