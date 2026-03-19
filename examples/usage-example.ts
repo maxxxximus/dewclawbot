@@ -23,20 +23,28 @@ const exampleSlots = [
 // Example geo data (would come from database)
 const exampleGeos = [
   {
-    id: 'geo_001',
-    country: 'UA',
-    language: 'uk',
-    currency: 'UAH',
-    cultural_elements: ['Ukrainian flags', 'traditional colors'],
-    forbidden_elements: ['Russian symbols']
+    id: '2',
+    country: 'DE',
+    language: 'de-DE',
+    currency: 'EUR',
+    cultural_elements: ['German efficiency', 'premium quality', 'Oktoberfest colors'],
+    forbidden_elements: ['illegal gambling symbols', 'Nazi imagery']
   },
   {
-    id: 'geo_002',
-    country: 'DE',
-    language: 'de', 
-    currency: 'EUR',
-    cultural_elements: ['German efficiency', 'premium quality'],
-    forbidden_elements: ['illegal gambling symbols']
+    id: '4',
+    country: 'UK',
+    language: 'en-GB',
+    currency: 'GBP',
+    cultural_elements: ['British style', 'royal themes', 'football culture'],
+    forbidden_elements: ['political symbols', 'underage gambling']
+  },
+  {
+    id: '17',
+    country: 'TR',
+    language: 'tr-TR',
+    currency: 'TRY',
+    cultural_elements: ['Turkish patterns', 'crescent and star', 'football passion'],
+    forbidden_elements: ['political content', 'religious imagery']
   }
 ];
 
@@ -44,7 +52,7 @@ const exampleGeos = [
 export async function demonstratePromptGeneration() {
   console.log('🎯 DEWCLAWBOT PROMPTER - Demonstration\n');
 
-  // Example 1: Generate prompts for Ukrainian casino audience
+  // Example 1: Generate prompts for German casino audience
   const input1: PromptGenerationInput = {
     slot: exampleSlots[0],
     geo: exampleGeos[0],
@@ -54,7 +62,7 @@ export async function demonstratePromptGeneration() {
     api_type: 'nano_banana_pro'
   };
 
-  console.log('📱 Generating prompts for Ukrainian casino audience...');
+  console.log('📱 Generating prompts for German casino audience...');
   const result1 = await prompter.generatePrompts(input1);
   console.log(`Generated ${result1.total_generated} prompts in ${result1.generation_time_ms}ms`);
   
@@ -66,7 +74,7 @@ export async function demonstratePromptGeneration() {
     console.log(`Prompt: ${prompt.prompt_text.substring(0, 100)}...`);
   });
 
-  // Example 2: Generate vertical format for German sports betting
+  // Example 2: Generate vertical format for UK sports betting
   const input2: PromptGenerationInput = {
     slot: exampleSlots[1],
     geo: exampleGeos[1], 
@@ -77,7 +85,7 @@ export async function demonstratePromptGeneration() {
     reference_description: 'Modern sports betting app interface with live scores'
   };
 
-  console.log('\n\n📱 Generating vertical prompts for German sports betting...');
+  console.log('\n\n📱 Generating vertical prompts for UK sports betting...');
   const result2 = await prompter.generatePrompts(input2);
   console.log(`Generated ${result2.total_generated} prompts in ${result2.generation_time_ms}ms`);
 

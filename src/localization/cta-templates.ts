@@ -8,13 +8,30 @@ export const CTA_TEMPLATES: CTATemplate[] = [
     aggression_level: 'easy',
     templates: {
       'en': 'Try Now',
+      'en-GB': 'Try Now',
       'uk': 'Спробувати',
       'ru': 'Попробовать',
       'de': 'Jetzt Testen',
+      'de-DE': 'Jetzt Testen',
+      'de-AT': 'Jetzt Testen',
       'es': 'Prueba Ahora',
+      'es-ES': 'Prueba Ahora',
       'fr': 'Essayer Maintenant',
+      'fr-FR': 'Essayer Maintenant',
       'pt': 'Experimente Agora',
-      'it': 'Prova Ora'
+      'pt-PT': 'Experimente Agora',
+      'it': 'Prova Ora',
+      'it-IT': 'Prova Ora',
+      'nl-NL': 'Probeer Nu',
+      'nl-BE': 'Probeer Nu',
+      'pl-PL': 'Spróbuj Teraz',
+      'cs-CZ': 'Zkuste Nyní',
+      'hu-HU': 'Próbáld Ki Most',
+      'sl-SI': 'Poskusite Zdaj',
+      'sk-SK': 'Vyskúšajte Teraz',
+      'tr-TR': 'Şimdi Deneyin',
+      'kk-KZ': 'Қазір Сынаңыз',
+      'ky-KG': 'Азыр Сынаңыз'
     }
   },
   {
@@ -22,13 +39,30 @@ export const CTA_TEMPLATES: CTATemplate[] = [
     aggression_level: 'easy',
     templates: {
       'en': 'Start Playing',
+      'en-GB': 'Start Playing',
       'uk': 'Почати Гру',
       'ru': 'Начать Игру',
       'de': 'Jetzt Spielen',
+      'de-DE': 'Jetzt Spielen',
+      'de-AT': 'Jetzt Spielen',
       'es': 'Empezar a Jugar',
+      'es-ES': 'Empezar a Jugar',
       'fr': 'Commencer à Jouer',
+      'fr-FR': 'Commencer à Jouer',
       'pt': 'Começar a Jogar',
-      'it': 'Inizia a Giocare'
+      'pt-PT': 'Começar a Jogar',
+      'it': 'Inizia a Giocare',
+      'it-IT': 'Inizia a Giocare',
+      'nl-NL': 'Begin met Spelen',
+      'nl-BE': 'Begin met Spelen',
+      'pl-PL': 'Zacznij Grać',
+      'cs-CZ': 'Začněte Hrát',
+      'hu-HU': 'Kezdj el Játszani',
+      'sl-SI': 'Začni Igrati',
+      'sk-SK': 'Začnite Hrať',
+      'tr-TR': 'Oynamaya Başlayın',
+      'kk-KZ': 'Ойнауды Бастаңыз',
+      'ky-KG': 'Ойноону Баштаңыз'
     }
   },
   
@@ -38,13 +72,30 @@ export const CTA_TEMPLATES: CTATemplate[] = [
     aggression_level: 'medium',
     templates: {
       'en': 'Win Big Today!',
+      'en-GB': 'Win Big Today!',
       'uk': 'Виграй Великі Гроші!',
       'ru': 'Выиграй Крупно!',
       'de': 'Gewinnen Sie Groß!',
+      'de-DE': 'Gewinnen Sie Groß!',
+      'de-AT': 'Gewinnen Sie Groß!',
       'es': '¡Gana en Grande!',
+      'es-ES': '¡Gana en Grande!',
       'fr': 'Gagnez Gros!',
+      'fr-FR': 'Gagnez Gros!',
       'pt': 'Ganhe Grande!',
-      'it': 'Vinci alla Grande!'
+      'pt-PT': 'Ganhe Grande!',
+      'it': 'Vinci alla Grande!',
+      'it-IT': 'Vinci alla Grande!',
+      'nl-NL': 'Win Groot Vandaag!',
+      'nl-BE': 'Win Groot Vandaag!',
+      'pl-PL': 'Wygraj Wielkie Pieniądze!',
+      'cs-CZ': 'Vyhrajte Velké Dnes!',
+      'hu-HU': 'Nyerj Nagyot Ma!',
+      'sl-SI': 'Osvojite Veliko Danes!',
+      'sk-SK': 'Vyhrajte Veľké Dnes!',
+      'tr-TR': 'Bugün Büyük Kazan!',
+      'kk-KZ': 'Бүгін Үлкен Жеңіп Алыңыз!',
+      'ky-KG': 'Бүгүн Чоң Утуп Алыңыз!'
     }
   },
   {
@@ -52,13 +103,30 @@ export const CTA_TEMPLATES: CTATemplate[] = [
     aggression_level: 'medium',
     templates: {
       'en': 'Claim Your Bonus',
+      'en-GB': 'Claim Your Bonus',
       'uk': 'Отримати Бонус',
       'ru': 'Получить Бонус',
       'de': 'Bonus Beanspruchen',
+      'de-DE': 'Bonus Beanspruchen',
+      'de-AT': 'Bonus Beanspruchen',
       'es': 'Reclama tu Bono',
+      'es-ES': 'Reclama tu Bono',
       'fr': 'Réclamez Votre Bonus',
+      'fr-FR': 'Réclamez Votre Bonus',
       'pt': 'Reivindique Seu Bônus',
-      'it': 'Rivendica il Tuo Bonus'
+      'pt-PT': 'Reivindique Seu Bónus',
+      'it': 'Rivendica il Tuo Bonus',
+      'it-IT': 'Rivendica il Tuo Bonus',
+      'nl-NL': 'Claim Je Bonus',
+      'nl-BE': 'Claim Je Bonus',
+      'pl-PL': 'Odbierz Bonus',
+      'cs-CZ': 'Získejte Bonus',
+      'hu-HU': 'Szerezd meg a Bónuszod',
+      'sl-SI': 'Prevzemite Bonus',
+      'sk-SK': 'Získajte Bonus',
+      'tr-TR': 'Bonusunu Al',
+      'kk-KZ': 'Бонусыңызды Алыңыз',
+      'ky-KG': 'Бонусуңузду Алыңыз'
     }
   },
 
@@ -68,13 +136,30 @@ export const CTA_TEMPLATES: CTATemplate[] = [
     aggression_level: 'hard',
     templates: {
       'en': 'JACKPOT AWAITS!',
+      'en-GB': 'JACKPOT AWAITS!',
       'uk': 'ДЖЕКПОТ ЧЕКАЄ!',
       'ru': 'ДЖЕКПОТ ЖДЁТ!',
       'de': 'JACKPOT WARTET!',
+      'de-DE': 'JACKPOT WARTET!',
+      'de-AT': 'JACKPOT WARTET!',
       'es': '¡JACKPOT TE ESPERA!',
+      'es-ES': '¡JACKPOT TE ESPERA!',
       'fr': 'JACKPOT VOUS ATTEND!',
+      'fr-FR': 'JACKPOT VOUS ATTEND!',
       'pt': 'JACKPOT TE AGUARDA!',
-      'it': 'JACKPOT TI ASPETTA!'
+      'pt-PT': 'JACKPOT TE AGUARDA!',
+      'it': 'JACKPOT TI ASPETTA!',
+      'it-IT': 'JACKPOT TI ASPETTA!',
+      'nl-NL': 'JACKPOT WACHT!',
+      'nl-BE': 'JACKPOT WACHT!',
+      'pl-PL': 'JACKPOT CZEKA!',
+      'cs-CZ': 'JACKPOT ČEKÁ!',
+      'hu-HU': 'JACKPOT VÁVÁ VÁR!',
+      'sl-SI': 'JACKPOT ČAKA!',
+      'sk-SK': 'JACKPOT ČAKÁ!',
+      'tr-TR': 'JACKPOT BEKLİYOR!',
+      'kk-KZ': 'ДЖЕКПОТ КҮТЕДІ!',
+      'ky-KG': 'ДЖЕКПОТ КҮТӨТ!'
     }
   },
   {
@@ -82,13 +167,30 @@ export const CTA_TEMPLATES: CTATemplate[] = [
     aggression_level: 'hard',
     templates: {
       'en': 'LAST CHANCE!',
+      'en-GB': 'LAST CHANCE!',
       'uk': 'ОСТАННІЙ ШАНС!',
       'ru': 'ПОСЛЕДНИЙ ШАНС!',
       'de': 'LETZTE CHANCE!',
+      'de-DE': 'LETZTE CHANCE!',
+      'de-AT': 'LETZTE CHANCE!',
       'es': '¡ÚLTIMA OPORTUNIDAD!',
+      'es-ES': '¡ÚLTIMA OPORTUNIDAD!',
       'fr': 'DERNIÈRE CHANCE!',
+      'fr-FR': 'DERNIÈRE CHANCE!',
       'pt': 'ÚLTIMA CHANCE!',
-      'it': 'ULTIMA POSSIBILITÀ!'
+      'pt-PT': 'ÚLTIMA OPORTUNIDADE!',
+      'it': 'ULTIMA POSSIBILITÀ!',
+      'it-IT': 'ULTIMA POSSIBILITÀ!',
+      'nl-NL': 'LAATSTE KANS!',
+      'nl-BE': 'LAATSTE KANS!',
+      'pl-PL': 'OSTATNIA SZANSA!',
+      'cs-CZ': 'POSLEDNÍ ŠANCE!',
+      'hu-HU': 'UTOLSÓ ESÉLY!',
+      'sl-SI': 'ZADNJA PRILOŽNOST!',
+      'sk-SK': 'POSLEDNÁ ŠANCA!',
+      'tr-TR': 'SON ŞANS!',
+      'kk-KZ': 'СОҢҒЫ МҮМКІНДІК!',
+      'ky-KG': 'АКЫРКЫ МҮМКҮНЧҮЛҮК!'
     }
   }
 ];
@@ -144,13 +246,30 @@ export class CTALocalizer {
   private static getFallbackCTA(language: string): string {
     const fallbacks: Record<string, string> = {
       'en': 'Play Now',
+      'en-GB': 'Play Now',
       'uk': 'Грати Зараз',
       'ru': 'Играть Сейчас',
       'de': 'Jetzt Spielen',
+      'de-DE': 'Jetzt Spielen',
+      'de-AT': 'Jetzt Spielen',
       'es': 'Jugar Ahora',
+      'es-ES': 'Jugar Ahora',
       'fr': 'Jouer Maintenant',
+      'fr-FR': 'Jouer Maintenant',
       'pt': 'Jogar Agora',
-      'it': 'Gioca Ora'
+      'pt-PT': 'Jogar Agora',
+      'it': 'Gioca Ora',
+      'it-IT': 'Gioca Ora',
+      'nl-NL': 'Speel Nu',
+      'nl-BE': 'Speel Nu',
+      'pl-PL': 'Graj Teraz',
+      'cs-CZ': 'Hrajte Nyní',
+      'hu-HU': 'Játssz Most',
+      'sl-SI': 'Igrajte Zdaj',
+      'sk-SK': 'Hrajte Teraz',
+      'tr-TR': 'Şimdi Oyna',
+      'kk-KZ': 'Қазір Ойнаңыз',
+      'ky-KG': 'Азыр Ойноңуз'
     };
 
     return fallbacks[language] || fallbacks['en'];

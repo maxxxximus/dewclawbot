@@ -4,124 +4,377 @@
   "geos": [
     {
       "id": "1",
-      "country_code": "BR",
-      "name": "Brazil",
-      "language": "pt-BR",
-      "currency": "BRL",
-      "timezone": "America/Sao_Paulo",
+      "country_code": "NL",
+      "name": "Netherlands",
+      "language": "nl-NL",
+      "currency": "EUR",
+      "timezone": "Europe/Amsterdam",
       "top_banks": [
-        "Itaú Unibanco",
-        "Banco do Brasil", 
-        "Bradesco",
-        "Caixa Econômica Federal"
+        "ING Bank",
+        "ABN AMRO",
+        "Rabobank",
+        "SNS Bank"
       ],
       "payment_methods": [
-        "PIX",
-        "Boleto",
-        "Cartão de Crédito",
-        "Transferência Bancária"
+        "iDEAL",
+        "Bancontact",
+        "SEPA",
+        "PayPal"
       ],
       "gambling_preference": "sports_betting",
-      "peak_hours": "19:00-23:00",
-      "mobile_usage": "85%"
+      "peak_hours": "20:00-23:00",
+      "mobile_usage": "91%"
     },
     {
       "id": "2",
-      "country_code": "IN",
-      "name": "India",
-      "language": "hi-IN",
-      "currency": "INR",
-      "timezone": "Asia/Kolkata",
+      "country_code": "DE",
+      "name": "Germany",
+      "language": "de-DE",
+      "currency": "EUR",
+      "timezone": "Europe/Berlin",
       "top_banks": [
-        "State Bank of India",
-        "HDFC Bank",
-        "ICICI Bank",
-        "Axis Bank"
+        "Deutsche Bank",
+        "Commerzbank",
+        "DZ Bank",
+        "Sparkasse"
       ],
       "payment_methods": [
-        "UPI",
-        "Paytm",
-        "PhonePe",
-        "Google Pay"
-      ],
-      "gambling_preference": "rummy_poker",
-      "peak_hours": "20:00-24:00",
-      "mobile_usage": "92%"
-    },
-    {
-      "id": "3",
-      "country_code": "PE",
-      "name": "Peru",
-      "language": "es-PE",
-      "currency": "PEN",
-      "timezone": "America/Lima",
-      "top_banks": [
-        "BCP",
-        "BBVA Continental",
-        "Interbank",
-        "Scotiabank Perú"
-      ],
-      "payment_methods": [
-        "Yape",
-        "Plin",
-        "Visa",
-        "MasterCard"
-      ],
-      "gambling_preference": "slots_sports",
-      "peak_hours": "18:00-22:00",
-      "mobile_usage": "78%"
-    },
-    {
-      "id": "4",
-      "country_code": "MX",
-      "name": "Mexico",
-      "language": "es-MX",
-      "currency": "MXN",
-      "timezone": "America/Mexico_City",
-      "top_banks": [
-        "BBVA México",
-        "Banamex",
-        "Santander México",
-        "Banorte"
-      ],
-      "payment_methods": [
-        "SPEI",
-        "OXXO Pay",
-        "Mercado Pago",
+        "SEPA",
+        "Sofort",
+        "Giropay",
         "PayPal"
       ],
-      "gambling_preference": "live_casino",
-      "peak_hours": "19:00-23:00",
-      "mobile_usage": "81%"
-    },
-    {
-      "id": "5",
-      "country_code": "CL",
-      "name": "Chile",
-      "language": "es-CL",
-      "currency": "CLP",
-      "timezone": "America/Santiago",
-      "top_banks": [
-        "Banco de Chile",
-        "BancoEstado",
-        "Santander Chile",
-        "Banco Falabella"
-      ],
-      "payment_methods": [
-        "Khipu",
-        "Transbank",
-        "Redcompra",
-        "Transferencia"
-      ],
       "gambling_preference": "sports_betting",
-      "peak_hours": "20:00-24:00",
+      "peak_hours": "19:00-22:00",
       "mobile_usage": "89%"
     },
     {
+      "id": "3",
+      "country_code": "PL",
+      "name": "Poland",
+      "language": "pl-PL",
+      "currency": "PLN",
+      "timezone": "Europe/Warsaw",
+      "top_banks": [
+        "PKO Bank Polski",
+        "Bank Pekao",
+        "mBank",
+        "ING Bank Śląski"
+      ],
+      "payment_methods": [
+        "BLIK",
+        "Przelewy24",
+        "PayU",
+        "Bank Transfer"
+      ],
+      "gambling_preference": "slots_sports",
+      "peak_hours": "20:00-23:00",
+      "mobile_usage": "87%"
+    },
+    {
+      "id": "4",
+      "country_code": "UK",
+      "name": "United Kingdom",
+      "language": "en-GB",
+      "currency": "GBP",
+      "timezone": "Europe/London",
+      "top_banks": [
+        "HSBC",
+        "Barclays",
+        "Lloyds",
+        "NatWest"
+      ],
+      "payment_methods": [
+        "Faster Payments",
+        "CHAPS",
+        "PayPal",
+        "Open Banking"
+      ],
+      "gambling_preference": "sports_betting",
+      "peak_hours": "19:00-22:00",
+      "mobile_usage": "92%"
+    },
+    {
+      "id": "5",
+      "country_code": "IT",
+      "name": "Italy",
+      "language": "it-IT",
+      "currency": "EUR",
+      "timezone": "Europe/Rome",
+      "top_banks": [
+        "UniCredit",
+        "Intesa Sanpaolo",
+        "Banco BPM",
+        "BPER Banca"
+      ],
+      "payment_methods": [
+        "SEPA",
+        "PostePay",
+        "Satispay",
+        "Bank Transfer"
+      ],
+      "gambling_preference": "sports_betting",
+      "peak_hours": "20:00-23:00",
+      "mobile_usage": "85%"
+    },
+    {
       "id": "6",
+      "country_code": "FR",
+      "name": "France",
+      "language": "fr-FR",
+      "currency": "EUR",
+      "timezone": "Europe/Paris",
+      "top_banks": [
+        "BNP Paribas",
+        "Crédit Agricole",
+        "Société Générale",
+        "Banque Populaire"
+      ],
+      "payment_methods": [
+        "SEPA",
+        "CB",
+        "Lydia",
+        "PayPal"
+      ],
+      "gambling_preference": "live_casino",
+      "peak_hours": "20:00-23:00",
+      "mobile_usage": "88%"
+    },
+    {
+      "id": "7",
+      "country_code": "ES",
+      "name": "Spain",
+      "language": "es-ES",
+      "currency": "EUR",
+      "timezone": "Europe/Madrid",
+      "top_banks": [
+        "Santander",
+        "BBVA",
+        "CaixaBank",
+        "Banco Sabadell"
+      ],
+      "payment_methods": [
+        "SEPA",
+        "Bizum",
+        "PayPal",
+        "Bank Transfer"
+      ],
+      "gambling_preference": "sports_betting",
+      "peak_hours": "21:00-24:00",
+      "mobile_usage": "86%"
+    },
+    {
+      "id": "8",
+      "country_code": "PT",
+      "name": "Portugal",
+      "language": "pt-PT",
+      "currency": "EUR",
+      "timezone": "Europe/Lisbon",
+      "top_banks": [
+        "Millennium BCP",
+        "CGD",
+        "Novo Banco",
+        "Santander Totta"
+      ],
+      "payment_methods": [
+        "SEPA",
+        "MB WAY",
+        "PayPal",
+        "Bank Transfer"
+      ],
+      "gambling_preference": "sports_betting",
+      "peak_hours": "20:00-23:00",
+      "mobile_usage": "84%"
+    },
+    {
+      "id": "9",
+      "country_code": "CZ",
+      "name": "Czech Republic",
+      "language": "cs-CZ",
+      "currency": "CZK",
+      "timezone": "Europe/Prague",
+      "top_banks": [
+        "Česká spořitelna",
+        "ČSOB",
+        "Komerční banka",
+        "Raiffeisenbank"
+      ],
+      "payment_methods": [
+        "Bank Transfer",
+        "SEPA",
+        "PayPal",
+        "QR platby"
+      ],
+      "gambling_preference": "slots_sports",
+      "peak_hours": "19:00-22:00",
+      "mobile_usage": "83%"
+    },
+    {
+      "id": "10",
+      "country_code": "HU",
+      "name": "Hungary",
+      "language": "hu-HU",
+      "currency": "HUF",
+      "timezone": "Europe/Budapest",
+      "top_banks": [
+        "OTP Bank",
+        "K&H Bank",
+        "Erste Bank",
+        "UniCredit Bank"
+      ],
+      "payment_methods": [
+        "Bank Transfer",
+        "SEPA",
+        "Simple",
+        "PayPal"
+      ],
+      "gambling_preference": "slots_live_casino",
+      "peak_hours": "19:00-22:00",
+      "mobile_usage": "81%"
+    },
+    {
+      "id": "11",
+      "country_code": "SL",
+      "name": "Slovenia",
+      "language": "sl-SI",
+      "currency": "EUR",
+      "timezone": "Europe/Ljubljana",
+      "top_banks": [
+        "NLB",
+        "SKB Banka",
+        "Abanka",
+        "Banka Sparkasse"
+      ],
+      "payment_methods": [
+        "SEPA",
+        "UPN QR",
+        "PayPal",
+        "Bank Transfer"
+      ],
+      "gambling_preference": "sports_betting",
+      "peak_hours": "20:00-23:00",
+      "mobile_usage": "82%"
+    },
+    {
+      "id": "12",
+      "country_code": "SK",
+      "name": "Slovakia",
+      "language": "sk-SK",
+      "currency": "EUR",
+      "timezone": "Europe/Bratislava",
+      "top_banks": [
+        "Slovenská sporiteľňa",
+        "VÚB Banka",
+        "Tatra banka",
+        "ČSOB"
+      ],
+      "payment_methods": [
+        "SEPA",
+        "Bank Transfer",
+        "PayPal",
+        "QR platby"
+      ],
+      "gambling_preference": "slots_sports",
+      "peak_hours": "19:00-22:00",
+      "mobile_usage": "80%"
+    },
+    {
+      "id": "13",
+      "country_code": "AT",
+      "name": "Austria",
+      "language": "de-AT",
+      "currency": "EUR",
+      "timezone": "Europe/Vienna",
+      "top_banks": [
+        "Erste Bank",
+        "Bank Austria",
+        "Raiffeisen Bank",
+        "BAWAG P.S.K."
+      ],
+      "payment_methods": [
+        "SEPA",
+        "eps",
+        "PayPal",
+        "Bank Transfer"
+      ],
+      "gambling_preference": "sports_betting",
+      "peak_hours": "19:00-22:00",
+      "mobile_usage": "88%"
+    },
+    {
+      "id": "14",
+      "country_code": "BE",
+      "name": "Belgium",
+      "language": "nl-BE",
+      "currency": "EUR",
+      "timezone": "Europe/Brussels",
+      "top_banks": [
+        "KBC Bank",
+        "BNP Paribas Fortis",
+        "ING Belgium",
+        "Belfius"
+      ],
+      "payment_methods": [
+        "SEPA",
+        "Bancontact",
+        "PayPal",
+        "Bank Transfer"
+      ],
+      "gambling_preference": "sports_betting",
+      "peak_hours": "20:00-23:00",
+      "mobile_usage": "90%"
+    },
+    {
+      "id": "15",
+      "country_code": "KZ",
+      "name": "Kazakhstan",
+      "language": "kk-KZ",
+      "currency": "KZT",
+      "timezone": "Asia/Almaty",
+      "top_banks": [
+        "Kaspi Bank",
+        "Halyk Bank",
+        "ForteBank",
+        "Sberbank Kazakhstan"
+      ],
+      "payment_methods": [
+        "Kaspi Pay",
+        "Bank Transfer",
+        "Alipay Kazakhstan",
+        "QIWI"
+      ],
+      "gambling_preference": "slots_sports",
+      "peak_hours": "20:00-01:00",
+      "mobile_usage": "85%"
+    },
+    {
+      "id": "16",
+      "country_code": "KG",
+      "name": "Kyrgyzstan",
+      "language": "ky-KG",
+      "currency": "KGS",
+      "timezone": "Asia/Bishkek",
+      "top_banks": [
+        "Optima Bank",
+        "RSK Bank",
+        "Demir Kyrgyz International Bank",
+        "Bank Asia"
+      ],
+      "payment_methods": [
+        "Bank Transfer",
+        "ELCARD",
+        "O! Money",
+        "Mbank"
+      ],
+      "gambling_preference": "slots_live_casino",
+      "peak_hours": "19:00-23:00",
+      "mobile_usage": "78%"
+    },
+    {
+      "id": "17",
       "country_code": "TR",
       "name": "Turkey",
-      "language": "tr-TR", 
+      "language": "tr-TR",
       "currency": "TRY",
       "timezone": "Europe/Istanbul",
       "top_banks": [
@@ -139,98 +392,6 @@
       "gambling_preference": "slots_live_casino",
       "peak_hours": "21:00-01:00",
       "mobile_usage": "87%"
-    },
-    {
-      "id": "7",
-      "country_code": "PH",
-      "name": "Philippines",
-      "language": "en-PH",
-      "currency": "PHP",
-      "timezone": "Asia/Manila",
-      "top_banks": [
-        "BDO",
-        "BPI",
-        "Metrobank",
-        "PNB"
-      ],
-      "payment_methods": [
-        "GCash",
-        "PayMaya",
-        "Online Banking",
-        "Over-the-Counter"
-      ],
-      "gambling_preference": "cockfighting_bingo",
-      "peak_hours": "19:00-23:00",
-      "mobile_usage": "90%"
-    },
-    {
-      "id": "8",
-      "country_code": "NG",
-      "name": "Nigeria",
-      "language": "en-NG",
-      "currency": "NGN",
-      "timezone": "Africa/Lagos",
-      "top_banks": [
-        "First Bank",
-        "Zenith Bank",
-        "GTBank",
-        "UBA"
-      ],
-      "payment_methods": [
-        "Bank Transfer",
-        "Flutterwave",
-        "Paystack",
-        "Quickteller"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "18:00-22:00",
-      "mobile_usage": "94%"
-    },
-    {
-      "id": "9",
-      "country_code": "TH",
-      "name": "Thailand",
-      "language": "th-TH",
-      "currency": "THB",
-      "timezone": "Asia/Bangkok",
-      "top_banks": [
-        "Siam Commercial Bank",
-        "Bangkok Bank", 
-        "Kasikornbank",
-        "Krung Thai Bank"
-      ],
-      "payment_methods": [
-        "PromptPay",
-        "TrueMoney",
-        "SCB Easy",
-        "K PLUS"
-      ],
-      "gambling_preference": "baccarat_slots",
-      "peak_hours": "20:00-24:00",
-      "mobile_usage": "91%"
-    },
-    {
-      "id": "10",
-      "country_code": "ID",
-      "name": "Indonesia",
-      "language": "id-ID",
-      "currency": "IDR",
-      "timezone": "Asia/Jakarta",
-      "top_banks": [
-        "Bank Mandiri",
-        "BRI",
-        "BCA",
-        "BNI"
-      ],
-      "payment_methods": [
-        "OVO",
-        "GoPay",
-        "DANA",
-        "Bank Transfer"
-      ],
-      "gambling_preference": "poker_slots",
-      "peak_hours": "19:00-23:00",
-      "mobile_usage": "88%"
     }
   ]
 }
