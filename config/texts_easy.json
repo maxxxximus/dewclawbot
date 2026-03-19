@@ -1,0 +1,86 @@
+{
+  "// Опис": "М'які CTA тексти для креативів",
+  "// Рівень": "easy - ненав'язливі, дружні, без тиску",
+  "cta_texts": [
+    {
+      "id": "1",
+      "text": "Спробуй свою удачу",
+      "language": "uk",
+      "emotion": "friendly",
+      "urgency": "low",
+      "target_audience": "new_players"
+    },
+    {
+      "id": "2", 
+      "text": "Відкрий для себе нові можливості",
+      "language": "uk",
+      "emotion": "curious",
+      "urgency": "low",
+      "target_audience": "explorers"
+    },
+    {
+      "id": "3",
+      "text": "Приєднуйся до гри",
+      "language": "uk",
+      "emotion": "inviting",
+      "urgency": "low",
+      "target_audience": "social_players"
+    },
+    {
+      "id": "4",
+      "text": "Почни свою пригоду",
+      "language": "uk",
+      "emotion": "adventurous",
+      "urgency": "low",
+      "target_audience": "adventure_seekers"
+    },
+    {
+      "id": "5",
+      "text": "Насолоджуйся грою",
+      "language": "uk",
+      "emotion": "relaxed",
+      "urgency": "low",
+      "target_audience": "entertainment_seekers"
+    },
+    {
+      "id": "6",
+      "text": "Дізнайся більше",
+      "language": "uk",
+      "emotion": "informative",
+      "urgency": "low",
+      "target_audience": "curious_browsers"
+    },
+    {
+      "id": "7",
+      "text": "Спробуй безкоштовно",
+      "language": "uk", 
+      "emotion": "generous",
+      "urgency": "low",
+      "target_audience": "cautious_players"
+    },
+    {
+      "id": "8",
+      "text": "Відчуй азарт",
+      "language": "uk",
+      "emotion": "exciting",
+      "urgency": "low",
+      "target_audience": "thrill_seekers"
+    },
+    {
+      "id": "9",
+      "text": "Зроби свій перший крок",
+      "language": "uk",
+      "emotion": "encouraging",
+      "urgency": "low",
+      "target_audience": "beginners"
+    },
+    {
+      "id": "10",
+      "text": "Познайомся з грою",
+      "language": "uk",
+      "emotion": "welcoming",
+      "urgency": "low",
+      "target_audience": "newcomers"
+    }
+  ]
+}

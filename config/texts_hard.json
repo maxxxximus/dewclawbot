@@ -1,0 +1,86 @@
+{
+  "// Опис": "Агресивні CTA тексти для креативів",
+  "// Рівень": "hard - максимальний тиск, терміновість, FOMO",
+  "cta_texts": [
+    {
+      "id": "1",
+      "text": "ОСТАННІЙ ШАНС! Забирай МІЛЬЙОНИ!",
+      "language": "uk",
+      "emotion": "panic",
+      "urgency": "critical",
+      "target_audience": "desperate_players"
+    },
+    {
+      "id": "2",
+      "text": "ТИ ПРОГРАЄШ ГРОШІ ПРЯМО ЗАРАЗ!",
+      "language": "uk",
+      "emotion": "fear",
+      "urgency": "critical", 
+      "target_audience": "loss_averse"
+    },
+    {
+      "id": "3",
+      "text": "ДЖЕКПОТ СКОРО ЗАКІНЧУЄТЬСЯ!",
+      "language": "uk",
+      "emotion": "scarcity",
+      "urgency": "critical",
+      "target_audience": "fomo_extreme"
+    },
+    {
+      "id": "4",
+      "text": "СТАНЬ МІЛЬЙОНЕРОМ ЗА 5 ХВИЛИН!",
+      "language": "uk",
+      "emotion": "greed",
+      "urgency": "critical",
+      "target_audience": "instant_wealth"
+    },
+    {
+      "id": "5",
+      "text": "ТВОЇ ДРУЗІ ВЖЕ ВИГРАЛИ - А ТИ?",
+      "language": "uk",
+      "emotion": "jealousy",
+      "urgency": "critical",
+      "target_audience": "competitive_social"
+    },
+    {
+      "id": "6",
+      "text": "НЕ БУДЬ НЕВДАХОЮ! ВИГРАВАЙ ЗАРАЗ!",
+      "language": "uk",
+      "emotion": "shame",
+      "urgency": "critical",
+      "target_audience": "ego_driven"
+    },
+    {
+      "id": "7",
+      "text": "ПРАЦЮВАТИ? НІ! ВИГРАВАЙ МІЛЬЙОНИ!",
+      "language": "uk",
+      "emotion": "lazy_greed",
+      "urgency": "critical", 
+      "target_audience": "work_haters"
+    },
+    {
+      "id": "8",
+      "text": "БІДНІСТЬ ЗАКІНЧУЄТЬСЯ СЬОГОДНІ!",
+      "language": "uk",
+      "emotion": "desperation",
+      "urgency": "critical",
+      "target_audience": "financially_struggling"
+    },
+    {
+      "id": "9",
+      "text": "ПОКИ ТИ ДУМАЄШ - ІНШІ ВИГРАВАЮТЬ!",
+      "language": "uk",
+      "emotion": "competitive_pressure",
+      "urgency": "critical",
+      "target_audience": "overthinkers"
+    },
+    {
+      "id": "10",
+      "text": "ЗАРАЗ АБО НІКОЛИ! ЗАБИРАЙ ВСЕ!",
+      "language": "uk",
+      "emotion": "all_or_nothing",
+      "urgency": "critical",
+      "target_audience": "risk_takers"
+    }
+  ]
+}

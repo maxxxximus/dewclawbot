@@ -1,0 +1,198 @@
+{
+  "// Опис": "База даних слотів з метаданими для генерації креативів",
+  "// Формат": "provider, game_type, colors (primary, secondary), theme",
+  "slots": [
+    {
+      "id": "1",
+      "name": "Sweet Bonanza",
+      "provider": "Pragmatic Play",
+      "game_type": "fruits",
+      "theme": "candy",
+      "colors": {
+        "primary": "#FF6B9D",
+        "secondary": "#4ECDC4",
+        "accent": "#FFE66D"
+      },
+      "rtp": "96.51%",
+      "volatility": "high",
+      "max_win": "21000x",
+      "features": ["free_spins", "multipliers", "tumble"]
+    },
+    {
+      "id": "2", 
+      "name": "Gates of Olympus",
+      "provider": "Pragmatic Play",
+      "game_type": "mythology",
+      "theme": "ancient_gods",
+      "colors": {
+        "primary": "#FFD700",
+        "secondary": "#8A2BE2",
+        "accent": "#FF4500"
+      },
+      "rtp": "96.50%",
+      "volatility": "high",
+      "max_win": "5000x",
+      "features": ["multipliers", "free_spins", "buy_bonus"]
+    },
+    {
+      "id": "3",
+      "name": "Book of Dead",
+      "provider": "Play'n GO",
+      "game_type": "adventure",
+      "theme": "egyptian",
+      "colors": {
+        "primary": "#DAA520",
+        "secondary": "#2F4F4F",
+        "accent": "#FF6347"
+      },
+      "rtp": "96.21%",
+      "volatility": "high",
+      "max_win": "5000x",
+      "features": ["free_spins", "expanding_symbols", "gamble"]
+    },
+    {
+      "id": "4",
+      "name": "Starburst",
+      "provider": "NetEnt",
+      "game_type": "classic",
+      "theme": "space_gems",
+      "colors": {
+        "primary": "#8A2BE2",
+        "secondary": "#FF1493",
+        "accent": "#00BFFF"
+      },
+      "rtp": "96.09%",
+      "volatility": "low",
+      "max_win": "500x",
+      "features": ["expanding_wilds", "respins"]
+    },
+    {
+      "id": "5",
+      "name": "Razor Shark",
+      "provider": "Push Gaming",
+      "game_type": "underwater",
+      "theme": "ocean_predators",
+      "colors": {
+        "primary": "#1E90FF",
+        "secondary": "#FF4500",
+        "accent": "#FFD700"
+      },
+      "rtp": "96.70%",
+      "volatility": "high",
+      "max_win": "50000x",
+      "features": ["mystery_stacks", "free_spins", "nudge_wilds"]
+    },
+    {
+      "id": "6",
+      "name": "Crazy Time",
+      "provider": "Evolution Gaming",
+      "game_type": "live_show",
+      "theme": "game_show",
+      "colors": {
+        "primary": "#FF0080",
+        "secondary": "#00FF80",
+        "accent": "#FFFF00"
+      },
+      "rtp": "96.08%",
+      "volatility": "medium",
+      "max_win": "20000x",
+      "features": ["bonus_rounds", "multipliers", "live_host"]
+    },
+    {
+      "id": "7",
+      "name": "Gonzo's Quest",
+      "provider": "NetEnt",
+      "game_type": "adventure",
+      "theme": "aztec_treasure",
+      "colors": {
+        "primary": "#DAA520",
+        "secondary": "#228B22",
+        "accent": "#DC143C"
+      },
+      "rtp": "95.97%",
+      "volatility": "medium",
+      "max_win": "2500x",
+      "features": ["avalanche", "multipliers", "free_falls"]
+    },
+    {
+      "id": "8",
+      "name": "Fruit Party",
+      "provider": "Pragmatic Play",
+      "game_type": "fruits",
+      "theme": "tropical_party",
+      "colors": {
+        "primary": "#FF6347",
+        "secondary": "#32CD32",
+        "accent": "#FFD700"
+      },
+      "rtp": "96.50%",
+      "volatility": "high",
+      "max_win": "5000x",
+      "features": ["multipliers", "free_spins", "tumble"]
+    },
+    {
+      "id": "9",
+      "name": "Money Train 3",
+      "provider": "Relax Gaming",
+      "game_type": "steampunk",
+      "theme": "wild_west_train",
+      "colors": {
+        "primary": "#8B4513",
+        "secondary": "#FFD700",
+        "accent": "#DC143C"
+      },
+      "rtp": "96.10%",
+      "volatility": "very_high",
+      "max_win": "100000x",
+      "features": ["money_symbols", "bonus_buy", "respins"]
+    },
+    {
+      "id": "10",
+      "name": "Big Bass Bonanza",
+      "provider": "Pragmatic Play", 
+      "game_type": "fishing",
+      "theme": "bass_fishing",
+      "colors": {
+        "primary": "#4169E1",
+        "secondary": "#228B22",
+        "accent": "#FFD700"
+      },
+      "rtp": "96.71%",
+      "volatility": "high",
+      "max_win": "2100x",
+      "features": ["free_spins", "money_symbols", "hook_feature"]
+    },
+    {
+      "id": "11",
+      "name": "Starlight Princess",
+      "provider": "Pragmatic Play",
+      "game_type": "anime",
+      "theme": "magical_princess",
+      "colors": {
+        "primary": "#FF69B4",
+        "secondary": "#9370DB",
+        "accent": "#FFD700"
+      },
+      "rtp": "96.50%",
+      "volatility": "high",
+      "max_win": "5000x",
+      "features": ["multipliers", "tumble", "free_spins"]
+    },
+    {
+      "id": "12",
+      "name": "Wolf Gold",
+      "provider": "Pragmatic Play",
+      "game_type": "wildlife",
+      "theme": "american_wilderness",
+      "colors": {
+        "primary": "#DAA520",
+        "secondary": "#2F4F4F",
+        "accent": "#FF4500"
+      },
+      "rtp": "96.01%",
+      "volatility": "medium",
+      "max_win": "1000x",
+      "features": ["money_respin", "mega_symbols", "free_spins"]
+    }
+  ]
+}
