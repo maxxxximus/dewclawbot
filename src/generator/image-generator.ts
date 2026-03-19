@@ -141,6 +141,129 @@ export class RecraftClient implements ApiClient {
   }
 }
 
+// Gemini API Client (with Cloud Function proxy support)
+export class GeminiClient implements ApiClient {
+  constructor(
+    private apiKey: string,
+    private proxyUrl?: string,
+    private proxySecret?: string,
+    private proxyEnabled: boolean = true
+  ) {}
+
+  async generateImage(prompt: GeneratedPrompt): Promise<{
+    imageData: Buffer;
+    metadata: any;
+  }> {
+    // Try proxy first if enabled, fallback to direct API
+    if (this.proxyEnabled && this.proxyUrl && this.proxySecret) {
+      try {
+        return await this.generateViaProxy(prompt);
+      } catch (error) {
+        console.warn(`Proxy failed: ${error.message}, trying direct API...`);
+      }
+    }
+    
+    // Direct API fallback
+    return await this.generateViaDirectAPI(prompt);
+  }
+
+  private async generateViaProxy(prompt: GeneratedPrompt): Promise<{
+    imageData: Buffer;
+    metadata: any;
+  }> {
+    const response = await fetch(this.proxyUrl!, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${this.proxySecret}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        prompt: prompt.prompt_text,
+        generationConfig: prompt.api_specific_params.generationConfig,
+        safetySettings: prompt.api_specific_params.safetySettings
+      })
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Gemini Proxy error: ${response.status} ${errorText}`);
+    }
+
+    const result = await response.json();
+    return this.processGeminiResponse(result, 'proxy');
+  }
+
+  private async generateViaDirectAPI(prompt: GeneratedPrompt): Promise<{
+    imageData: Buffer;
+    metadata: any;
+  }> {
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${this.apiKey}`;
+    
+    const geminiRequest = {
+      contents: [
+        {
+          parts: [
+            {
+              text: prompt.prompt_text
+            }
+          ]
+        }
+      ],
+      generationConfig: prompt.api_specific_params
+    };
+
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(geminiRequest)
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Gemini Direct API error: ${response.status} ${errorText}`);
+    }
+
+    const result = await response.json();
+    return this.processGeminiResponse(result, 'direct');
+  }
+
+  private processGeminiResponse(result: any, source: 'proxy' | 'direct'): {
+    imageData: Buffer;
+    metadata: any;
+  } {
+    if (!result.candidates || result.candidates.length === 0) {
+      throw new Error('No candidates in Gemini API response');
+    }
+
+    const candidate = result.candidates[0];
+    if (!candidate.content || !candidate.content.parts) {
+      throw new Error('No content parts in Gemini response');
+    }
+
+    // Шукаємо частину з зображенням (inlineData)
+    const imagePart = candidate.content.parts.find((part: any) => part.inlineData);
+    if (!imagePart || !imagePart.inlineData || !imagePart.inlineData.data) {
+      throw new Error('No image data found in Gemini response');
+    }
+
+    // Gemini повертає base64 encoded зображення
+    const imageData = Buffer.from(imagePart.inlineData.data, 'base64');
+
+    return {
+      imageData,
+      metadata: {
+        api_response: result,
+        source,
+        generation_id: Date.now().toString(),
+        mime_type: imagePart.inlineData.mimeType || 'image/png',
+        text_parts: candidate.content.parts.filter((part: any) => part.text).map((part: any) => part.text)
+      }
+    };
+  }
+}
+
 export class ImageGenerator {
   private config: ImageGenerationConfig;
   private clients: Map<ApiType, ApiClient> = new Map();
@@ -162,6 +285,10 @@ export class ImageGenerator {
     // Ініціалізуємо клієнтів з environment variables
     const nanoBananaApiKey = process.env.NANO_BANANA_API_KEY;
     const recraftApiKey = process.env.RECRAFT_API_KEY;
+    const geminiApiKey = process.env.GEMINI_API_KEY;
+    const geminiProxyUrl = process.env.GEMINI_PROXY_URL;
+    const geminiProxySecret = process.env.GEMINI_PROXY_SECRET;
+    const geminiProxyEnabled = process.env.GEMINI_PROXY_ENABLED !== 'false';
 
     if (nanoBananaApiKey) {
       this.clients.set('nano_banana_pro', new NanoBananaProClient(nanoBananaApiKey));
@@ -169,6 +296,15 @@ export class ImageGenerator {
 
     if (recraftApiKey) {
       this.clients.set('recraft', new RecraftClient(recraftApiKey));
+    }
+
+    if (geminiApiKey) {
+      this.clients.set('gemini', new GeminiClient(
+        geminiApiKey,
+        geminiProxyUrl,
+        geminiProxySecret,
+        geminiProxyEnabled
+      ));
     }
   }
 
@@ -356,7 +492,8 @@ export class ImageGenerator {
   public validateApiKeys(): { [key in ApiType]?: boolean } {
     return {
       nano_banana_pro: this.clients.has('nano_banana_pro'),
-      recraft: this.clients.has('recraft')
+      recraft: this.clients.has('recraft'),
+      gemini: this.clients.has('gemini')
     };
   }
 }

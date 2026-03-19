@@ -20,7 +20,7 @@ export interface Geo {
 
 export type AggressionLevel = 'easy' | 'medium' | 'hard';
 export type Format = '1080x1080' | '9:16';
-export type ApiType = 'nano_banana_pro' | 'recraft';
+export type ApiType = 'nano_banana_pro' | 'recraft' | 'gemini';
 
 export interface PromptGenerationInput {
   slot: Slot;
