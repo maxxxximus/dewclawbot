@@ -116,43 +116,56 @@ class QCReviewer:
         }
         
         # Process each image
-        for image_file in input_path.glob("*.{jpg,jpeg,png,webp}"):
-            if image_file.is_file():
-                try:
-                    # Review the image
-                    qc_result = self.review(str(image_file), **review_kwargs)
-                    results["total"] += 1
-                    
-                    # Move based on result
-                    if qc_result.status == "pass":
-                        destination = approved_path / image_file.name
-                        results["approved"] += 1
-                    else:
-                        destination = rejected_path / image_file.name
-                        results["rejected"] += 1
-                    
-                    shutil.move(str(image_file), str(destination))
-                    
-                    # Save feedback alongside rejected images
-                    if qc_result.status == "fail":
-                        feedback_file = rejected_path / f"{image_file.stem}_feedback.json"
-                        with open(feedback_file, 'w') as f:
-                            json.dump(qc_result.model_dump(), f, indent=2)
-                    
-                    results["details"].append({
-                        "filename": image_file.name,
-                        "status": qc_result.status,
-                        "score": qc_result.score,
-                        "issues": qc_result.issues
-                    })
-                    
-                except Exception as e:
-                    print(f"Error processing {image_file.name}: {e}")
-                    results["details"].append({
-                        "filename": image_file.name,
-                        "status": "error",
-                        "error": str(e)
-                    })
+        image_extensions = [".jpg", ".jpeg", ".png", ".webp"]
+        image_files = [f for f in input_path.iterdir() 
+                      if f.is_file() and f.suffix.lower() in image_extensions]
+        
+        for image_file in image_files:
+            try:
+                # Review the image
+                qc_result = self.review(str(image_file), **review_kwargs)
+                results["total"] += 1
+                
+                # Move based on result
+                if qc_result.status == "pass":
+                    destination = approved_path / image_file.name
+                    results["approved"] += 1
+                else:
+                    destination = rejected_path / image_file.name
+                    results["rejected"] += 1
+                
+                # Check for existing file and handle appropriately
+                if destination.exists():
+                    # Create unique filename by appending counter
+                    counter = 1
+                    stem = destination.stem
+                    suffix = destination.suffix
+                    while destination.exists():
+                        destination = destination.parent / f"{stem}_{counter}{suffix}"
+                        counter += 1
+                
+                shutil.move(str(image_file), str(destination))
+                
+                # Save feedback alongside rejected images
+                if qc_result.status == "fail":
+                    feedback_file = rejected_path / f"{image_file.stem}_feedback.json"
+                    with open(feedback_file, 'w') as f:
+                        json.dump(qc_result.model_dump(), f, indent=2)
+                
+                results["details"].append({
+                    "filename": image_file.name,
+                    "status": qc_result.status,
+                    "score": qc_result.score,
+                    "issues": qc_result.issues
+                })
+                
+            except Exception as e:
+                print(f"Error processing {image_file.name}: {e}")
+                results["details"].append({
+                    "filename": image_file.name,
+                    "status": "error",
+                    "error": str(e)
+                })
         
         return results
 
