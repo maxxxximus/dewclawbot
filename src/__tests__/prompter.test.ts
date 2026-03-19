@@ -19,12 +19,12 @@ describe('Prompter', () => {
     };
 
     testGeo = {
-      id: 'test_geo_001',
-      country: 'UA',
-      language: 'uk',
-      currency: 'UAH',
-      cultural_elements: ['Ukrainian elements'],
-      forbidden_elements: ['prohibited content']
+      id: 'geo_nl',
+      country: 'NL',
+      language: 'nl',
+      currency: 'EUR',
+      cultural_elements: ['Dutch pragmatism', 'orange color'],
+      forbidden_elements: ['excessive gambling imagery', 'religious content']
     };
   });
 
@@ -76,7 +76,7 @@ describe('Prompter', () => {
 
       const result = await prompter.generatePrompts(input);
       
-      // Should contain Ukrainian text
+      // Should contain Polish text
       result.prompts.forEach(prompt => {
         expect(prompt.cta_text).toBeTruthy();
         expect(typeof prompt.cta_text).toBe('string');

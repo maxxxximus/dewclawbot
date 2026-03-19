@@ -1,236 +1,142 @@
 {
-  "// Опис": "База даних ГЕО з мовами та топ банками/платіжками",
-  "// Формат": "country_code, name, language, currency, top_banks, payment_methods",
+  "// Опис": "База даних ГЕО з 17 цільових ринків",
+  "// Формат": "country_code, language, currency, cultural_elements, forbidden_elements",
   "geos": [
     {
-      "id": "1",
-      "country_code": "BR",
-      "name": "Brazil",
-      "language": "pt-BR",
-      "currency": "BRL",
-      "timezone": "America/Sao_Paulo",
-      "top_banks": [
-        "Itaú Unibanco",
-        "Banco do Brasil", 
-        "Bradesco",
-        "Caixa Econômica Federal"
-      ],
-      "payment_methods": [
-        "PIX",
-        "Boleto",
-        "Cartão de Crédito",
-        "Transferência Bancária"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "19:00-23:00",
-      "mobile_usage": "85%"
+      "id": "geo_nl",
+      "country": "NL",
+      "language": "nl",
+      "currency": "EUR",
+      "cultural_elements": ["Dutch pragmatism", "orange color", "windmills", "cycling culture"],
+      "forbidden_elements": ["excessive gambling imagery", "religious content"]
     },
     {
-      "id": "2",
-      "country_code": "IN",
-      "name": "India",
-      "language": "hi-IN",
-      "currency": "INR",
-      "timezone": "Asia/Kolkata",
-      "top_banks": [
-        "State Bank of India",
-        "HDFC Bank",
-        "ICICI Bank",
-        "Axis Bank"
-      ],
-      "payment_methods": [
-        "UPI",
-        "Paytm",
-        "PhonePe",
-        "Google Pay"
-      ],
-      "gambling_preference": "rummy_poker",
-      "peak_hours": "20:00-24:00",
-      "mobile_usage": "92%"
+      "id": "geo_de",
+      "country": "DE", 
+      "language": "de",
+      "currency": "EUR",
+      "cultural_elements": ["German precision", "beer culture", "Oktoberfest", "football"],
+      "forbidden_elements": ["political content", "historical sensitive imagery"]
     },
     {
-      "id": "3",
-      "country_code": "PE",
-      "name": "Peru",
-      "language": "es-PE",
-      "currency": "PEN",
-      "timezone": "America/Lima",
-      "top_banks": [
-        "BCP",
-        "BBVA Continental",
-        "Interbank",
-        "Scotiabank Perú"
-      ],
-      "payment_methods": [
-        "Yape",
-        "Plin",
-        "Visa",
-        "MasterCard"
-      ],
-      "gambling_preference": "slots_sports",
-      "peak_hours": "18:00-22:00",
-      "mobile_usage": "78%"
+      "id": "geo_pl",
+      "country": "PL",
+      "language": "pl", 
+      "currency": "PLN",
+      "cultural_elements": ["Polish traditions", "red and white colors", "Catholic culture"],
+      "forbidden_elements": ["political content", "religious mockery"]
     },
     {
-      "id": "4",
-      "country_code": "MX",
-      "name": "Mexico",
-      "language": "es-MX",
-      "currency": "MXN",
-      "timezone": "America/Mexico_City",
-      "top_banks": [
-        "BBVA México",
-        "Banamex",
-        "Santander México",
-        "Banorte"
-      ],
-      "payment_methods": [
-        "SPEI",
-        "OXXO Pay",
-        "Mercado Pago",
-        "PayPal"
-      ],
-      "gambling_preference": "live_casino",
-      "peak_hours": "19:00-23:00",
-      "mobile_usage": "81%"
+      "id": "geo_uk",
+      "country": "UK",
+      "language": "en-GB",
+      "currency": "GBP", 
+      "cultural_elements": ["British humor", "tea culture", "football", "pubs"],
+      "forbidden_elements": ["excessive gambling promotion", "inappropriate betting imagery"]
     },
     {
-      "id": "5",
-      "country_code": "CL",
-      "name": "Chile",
-      "language": "es-CL",
-      "currency": "CLP",
-      "timezone": "America/Santiago",
-      "top_banks": [
-        "Banco de Chile",
-        "BancoEstado",
-        "Santander Chile",
-        "Banco Falabella"
-      ],
-      "payment_methods": [
-        "Khipu",
-        "Transbank",
-        "Redcompra",
-        "Transferencia"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "20:00-24:00",
-      "mobile_usage": "89%"
+      "id": "geo_it",
+      "country": "IT",
+      "language": "it",
+      "currency": "EUR",
+      "cultural_elements": ["Italian style", "food culture", "fashion", "football"],
+      "forbidden_elements": ["mafia references", "religious mockery"]
     },
     {
-      "id": "6",
-      "country_code": "TR",
-      "name": "Turkey",
-      "language": "tr-TR", 
-      "currency": "TRY",
-      "timezone": "Europe/Istanbul",
-      "top_banks": [
-        "Ziraat Bankası",
-        "İş Bankası",
-        "Garanti BBVA",
-        "Akbank"
-      ],
-      "payment_methods": [
-        "Havale/EFT",
-        "Papara",
-        "ininal",
-        "BKM Express"
-      ],
-      "gambling_preference": "slots_live_casino",
-      "peak_hours": "21:00-01:00",
-      "mobile_usage": "87%"
+      "id": "geo_fr",
+      "country": "FR", 
+      "language": "fr",
+      "currency": "EUR",
+      "cultural_elements": ["French elegance", "wine culture", "fashion", "cuisine"],
+      "forbidden_elements": ["cultural stereotypes", "political content"]
     },
     {
-      "id": "7",
-      "country_code": "PH",
-      "name": "Philippines",
-      "language": "en-PH",
-      "currency": "PHP",
-      "timezone": "Asia/Manila",
-      "top_banks": [
-        "BDO",
-        "BPI",
-        "Metrobank",
-        "PNB"
-      ],
-      "payment_methods": [
-        "GCash",
-        "PayMaya",
-        "Online Banking",
-        "Over-the-Counter"
-      ],
-      "gambling_preference": "cockfighting_bingo",
-      "peak_hours": "19:00-23:00",
-      "mobile_usage": "90%"
+      "id": "geo_es",
+      "country": "ES",
+      "language": "es",
+      "currency": "EUR",
+      "cultural_elements": ["Spanish passion", "flamenco", "football", "fiestas"],
+      "forbidden_elements": ["bullfighting", "political references"]
     },
     {
-      "id": "8",
-      "country_code": "NG",
-      "name": "Nigeria",
-      "language": "en-NG",
-      "currency": "NGN",
-      "timezone": "Africa/Lagos",
-      "top_banks": [
-        "First Bank",
-        "Zenith Bank",
-        "GTBank",
-        "UBA"
-      ],
-      "payment_methods": [
-        "Bank Transfer",
-        "Flutterwave",
-        "Paystack",
-        "Quickteller"
-      ],
-      "gambling_preference": "sports_betting",
-      "peak_hours": "18:00-22:00",
-      "mobile_usage": "94%"
+      "id": "geo_pt",
+      "country": "PT",
+      "language": "pt",
+      "currency": "EUR", 
+      "cultural_elements": ["Portuguese maritime heritage", "fado music", "football"],
+      "forbidden_elements": ["historical colonialism references"]
     },
     {
-      "id": "9",
-      "country_code": "TH",
-      "name": "Thailand",
-      "language": "th-TH",
-      "currency": "THB",
-      "timezone": "Asia/Bangkok",
-      "top_banks": [
-        "Siam Commercial Bank",
-        "Bangkok Bank", 
-        "Kasikornbank",
-        "Krung Thai Bank"
-      ],
-      "payment_methods": [
-        "PromptPay",
-        "TrueMoney",
-        "SCB Easy",
-        "K PLUS"
-      ],
-      "gambling_preference": "baccarat_slots",
-      "peak_hours": "20:00-24:00",
-      "mobile_usage": "91%"
+      "id": "geo_cz",
+      "country": "CZ",
+      "language": "cs",
+      "currency": "CZK",
+      "cultural_elements": ["Czech beer culture", "architecture", "hockey"],
+      "forbidden_elements": ["political content", "communist imagery"]
     },
     {
-      "id": "10",
-      "country_code": "ID",
-      "name": "Indonesia",
-      "language": "id-ID",
-      "currency": "IDR",
-      "timezone": "Asia/Jakarta",
-      "top_banks": [
-        "Bank Mandiri",
-        "BRI",
-        "BCA",
-        "BNI"
-      ],
-      "payment_methods": [
-        "OVO",
-        "GoPay",
-        "DANA",
-        "Bank Transfer"
-      ],
-      "gambling_preference": "poker_slots",
-      "peak_hours": "19:00-23:00",
-      "mobile_usage": "88%"
+      "id": "geo_hu",
+      "country": "HU",
+      "language": "hu",
+      "currency": "HUF",
+      "cultural_elements": ["Hungarian folk culture", "thermal baths", "paprika"],
+      "forbidden_elements": ["political content", "historical trauma"]
+    },
+    {
+      "id": "geo_sl",
+      "country": "SL",
+      "language": "sl",
+      "currency": "EUR",
+      "cultural_elements": ["Slovenian nature", "Alps", "skiing", "wine"],
+      "forbidden_elements": ["Yugoslav references", "political content"]
+    },
+    {
+      "id": "geo_sk",
+      "country": "SK",
+      "language": "sk", 
+      "currency": "EUR",
+      "cultural_elements": ["Slovak traditions", "mountains", "folk music"],
+      "forbidden_elements": ["political content", "historical references"]
+    },
+    {
+      "id": "geo_at",
+      "country": "AT",
+      "language": "de-AT",
+      "currency": "EUR",
+      "cultural_elements": ["Austrian culture", "classical music", "Alps", "coffee houses"],
+      "forbidden_elements": ["political content", "historical Nazi references"]
+    },
+    {
+      "id": "geo_be",
+      "country": "BE",
+      "language": "nl",
+      "currency": "EUR",
+      "cultural_elements": ["Belgian beer", "chocolate", "waffles", "comics"],
+      "forbidden_elements": ["language conflicts", "political division"]
+    },
+    {
+      "id": "geo_kz",
+      "country": "KZ", 
+      "language": "kk",
+      "currency": "KZT",
+      "cultural_elements": ["Kazakh nomadic culture", "traditional patterns", "horseback culture"],
+      "forbidden_elements": ["political content", "Russian dominance references"]
+    },
+    {
+      "id": "geo_kg",
+      "country": "KG",
+      "language": "ky",
+      "currency": "KGS",
+      "cultural_elements": ["Kyrgyz mountains", "nomadic traditions", "yurts"],
+      "forbidden_elements": ["political instability", "ethnic conflicts"]
+    },
+    {
+      "id": "geo_tr",
+      "country": "TR",
+      "language": "tr",
+      "currency": "TRY", 
+      "cultural_elements": ["Turkish culture", "Ottoman heritage", "tea culture", "hospitality"],
+      "forbidden_elements": ["political content", "Kurdish issues", "religious extremism"]
     }
   ]
 }

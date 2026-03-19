@@ -12,11 +12,7 @@
     "clean": "rm -rf dist",
     "generate": "ts-node src/generator/cli.ts",
     "generate:batch": "ts-node src/generator/cli.ts batch",
-    "generate:check": "ts-node src/generator/cli.ts check-api",
-    "localize": "ts-node src/localization/cli.ts localize",
-    "localize:specific": "ts-node src/localization/cli.ts localize-specific",
-    "localize:geos": "ts-node src/localization/cli.ts list-geos",
-    "example:localizer": "ts-node examples/localizer-example.ts"
+    "generate:check": "ts-node src/generator/cli.ts check-api"
   },
   "keywords": [
     "prompts",
@@ -39,8 +35,8 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.0.0",
-    "jest": "^29.0.0",
-    "ts-jest": "^29.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.6",
     "ts-node": "^10.0.0",
     "typescript": "^5.9.3"
   },
