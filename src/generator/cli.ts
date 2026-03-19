@@ -79,7 +79,7 @@ program
   .option('-g, --geo <geo>', 'ID геозони для генерації')
   .option('-a, --aggression <level>', 'Рівень агресії (easy|medium|hard)', 'medium')
   .option('-f, --format <format>', 'Формат зображення (1080x1080|9:16)', '1080x1080')
-  .option('-t, --api-type <type>', 'Тип API (nano_banana_pro|recraft)', 'nano_banana_pro')
+  .option('-t, --api-type <type>', 'Тип API (nano_banana_pro|recraft|gemini)', 'nano_banana_pro')
   .option('-c, --count <count>', 'Кількість варіацій', '5')
   .option('-o, --output <dir>', 'Директорія для збереження', 'output/pending_review')
   .option('--max-retries <retries>', 'Максимальна кількість повторних спроб', '3')
@@ -134,6 +134,7 @@ program
         console.error(`❌ API ключ для ${options.apiType} не знайдено. Перевірте environment variables:`);
         console.error('NANO_BANANA_API_KEY для nano_banana_pro');
         console.error('RECRAFT_API_KEY для recraft');
+        console.error('GEMINI_API_KEY для gemini');
         process.exit(1);
       }
 
@@ -183,7 +184,7 @@ program
           geos: ['ua', 'de'],
           aggressionLevels: ['medium', 'hard'],
           formats: ['1080x1080', '9:16'],
-          apiTypes: ['nano_banana_pro'],
+          apiTypes: ['gemini', 'nano_banana_pro'],
           variationsPerCombination: 3,
           outputDir: 'output/pending_review',
           maxRetries: 3,
@@ -295,14 +296,24 @@ program
     console.log('🔑 Перевірка API ключів:');
     const hasNano = !!process.env.NANO_BANANA_API_KEY;
     const hasRecraft = !!process.env.RECRAFT_API_KEY;
+    const hasGemini = !!process.env.GEMINI_API_KEY;
+    const geminiProxyUrl = process.env.GEMINI_PROXY_URL;
+    const geminiProxyEnabled = process.env.GEMINI_PROXY_ENABLED !== 'false';
     
     console.log(`  Nano Banana Pro: ${hasNano ? '✅' : '❌'}`);
     console.log(`  Recraft: ${hasRecraft ? '✅' : '❌'}`);
+    console.log(`  Gemini: ${hasGemini ? '✅' : '❌'}`);
     
-    if (!hasNano && !hasRecraft) {
+    if (hasGemini) {
+      console.log(`    Proxy enabled: ${geminiProxyEnabled ? '✅' : '❌'}`);
+      console.log(`    Proxy URL: ${geminiProxyUrl ? '✅' : '❌'}`);
+    }
+    
+    if (!hasNano && !hasRecraft && !hasGemini) {
       console.log('\n⚠️  Не знайдено жодного API ключа. Встановіть environment variables:');
       console.log('export NANO_BANANA_API_KEY="your-key"');
       console.log('export RECRAFT_API_KEY="your-key"');
+      console.log('export GEMINI_API_KEY="your-key"');
     }
   });
 

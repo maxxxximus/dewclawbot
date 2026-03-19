@@ -40,6 +40,29 @@ python qc_reviewer.py single creative.png --slot "Sweet Bonanza" --format "1080x
 python qc_reviewer.py batch ./generated_creatives --approved ./good --rejected ./needs_work
 ```
 
+### Image Generator
+Batch генератор зображень для gambling/traffic arbitrage креативів з підтримкою множини AI APIs.
+
+- **APIs**: Nano Banana Pro, Recraft, Google Gemini 2.0 Flash
+- **Batch processing**: 5-10 зображень за раз з retry логікою
+- **Auto naming**: `{slot}_{geo}_{style}_{n}.png`
+- **Proxy support**: Cloud Function proxy для обходу гео-блокування Gemini API
+- **Metadata tracking**: Повна історія генерації та зв'язки промпт → зображення
+
+[Full documentation](./IMAGE_GENERATOR.md) | [Gemini Integration](./GEMINI_INTEGRATION.md)
+
+Quick start:
+```bash
+npm install
+export GEMINI_API_KEY="your-key"
+
+# Single generation
+npm run generate -- generate --slot casino_classic --geo ua --api-type gemini --count 5
+
+# Batch generation
+npm run generate:batch
+```
+
 ## Installation
 
 ```bash

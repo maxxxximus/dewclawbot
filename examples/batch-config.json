@@ -3,7 +3,7 @@
   "geos": ["ua", "de"],
   "aggressionLevels": ["medium", "hard"],
   "formats": ["1080x1080", "9:16"],
-  "apiTypes": ["nano_banana_pro"],
+  "apiTypes": ["gemini", "nano_banana_pro"],
   "variationsPerCombination": 3,
   "outputDir": "output/pending_review",
   "maxRetries": 3,
