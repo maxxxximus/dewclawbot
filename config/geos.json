@@ -1,0 +1,236 @@
+{
+  "// Опис": "База даних ГЕО з мовами та топ банками/платіжками",
+  "// Формат": "country_code, name, language, currency, top_banks, payment_methods",
+  "geos": [
+    {
+      "id": "1",
+      "country_code": "BR",
+      "name": "Brazil",
+      "language": "pt-BR",
+      "currency": "BRL",
+      "timezone": "America/Sao_Paulo",
+      "top_banks": [
+        "Itaú Unibanco",
+        "Banco do Brasil", 
+        "Bradesco",
+        "Caixa Econômica Federal"
+      ],
+      "payment_methods": [
+        "PIX",
+        "Boleto",
+        "Cartão de Crédito",
+        "Transferência Bancária"
+      ],
+      "gambling_preference": "sports_betting",
+      "peak_hours": "19:00-23:00",
+      "mobile_usage": "85%"
+    },
+    {
+      "id": "2",
+      "country_code": "IN",
+      "name": "India",
+      "language": "hi-IN",
+      "currency": "INR",
+      "timezone": "Asia/Kolkata",
+      "top_banks": [
+        "State Bank of India",
+        "HDFC Bank",
+        "ICICI Bank",
+        "Axis Bank"
+      ],
+      "payment_methods": [
+        "UPI",
+        "Paytm",
+        "PhonePe",
+        "Google Pay"
+      ],
+      "gambling_preference": "rummy_poker",
+      "peak_hours": "20:00-24:00",
+      "mobile_usage": "92%"
+    },
+    {
+      "id": "3",
+      "country_code": "PE",
+      "name": "Peru",
+      "language": "es-PE",
+      "currency": "PEN",
+      "timezone": "America/Lima",
+      "top_banks": [
+        "BCP",
+        "BBVA Continental",
+        "Interbank",
+        "Scotiabank Perú"
+      ],
+      "payment_methods": [
+        "Yape",
+        "Plin",
+        "Visa",
+        "MasterCard"
+      ],
+      "gambling_preference": "slots_sports",
+      "peak_hours": "18:00-22:00",
+      "mobile_usage": "78%"
+    },
+    {
+      "id": "4",
+      "country_code": "MX",
+      "name": "Mexico",
+      "language": "es-MX",
+      "currency": "MXN",
+      "timezone": "America/Mexico_City",
+      "top_banks": [
+        "BBVA México",
+        "Banamex",
+        "Santander México",
+        "Banorte"
+      ],
+      "payment_methods": [
+        "SPEI",
+        "OXXO Pay",
+        "Mercado Pago",
+        "PayPal"
+      ],
+      "gambling_preference": "live_casino",
+      "peak_hours": "19:00-23:00",
+      "mobile_usage": "81%"
+    },
+    {
+      "id": "5",
+      "country_code": "CL",
+      "name": "Chile",
+      "language": "es-CL",
+      "currency": "CLP",
+      "timezone": "America/Santiago",
+      "top_banks": [
+        "Banco de Chile",
+        "BancoEstado",
+        "Santander Chile",
+        "Banco Falabella"
+      ],
+      "payment_methods": [
+        "Khipu",
+        "Transbank",
+        "Redcompra",
+        "Transferencia"
+      ],
+      "gambling_preference": "sports_betting",
+      "peak_hours": "20:00-24:00",
+      "mobile_usage": "89%"
+    },
+    {
+      "id": "6",
+      "country_code": "TR",
+      "name": "Turkey",
+      "language": "tr-TR", 
+      "currency": "TRY",
+      "timezone": "Europe/Istanbul",
+      "top_banks": [
+        "Ziraat Bankası",
+        "İş Bankası",
+        "Garanti BBVA",
+        "Akbank"
+      ],
+      "payment_methods": [
+        "Havale/EFT",
+        "Papara",
+        "ininal",
+        "BKM Express"
+      ],
+      "gambling_preference": "slots_live_casino",
+      "peak_hours": "21:00-01:00",
+      "mobile_usage": "87%"
+    },
+    {
+      "id": "7",
+      "country_code": "PH",
+      "name": "Philippines",
+      "language": "en-PH",
+      "currency": "PHP",
+      "timezone": "Asia/Manila",
+      "top_banks": [
+        "BDO",
+        "BPI",
+        "Metrobank",
+        "PNB"
+      ],
+      "payment_methods": [
+        "GCash",
+        "PayMaya",
+        "Online Banking",
+        "Over-the-Counter"
+      ],
+      "gambling_preference": "cockfighting_bingo",
+      "peak_hours": "19:00-23:00",
+      "mobile_usage": "90%"
+    },
+    {
+      "id": "8",
+      "country_code": "NG",
+      "name": "Nigeria",
+      "language": "en-NG",
+      "currency": "NGN",
+      "timezone": "Africa/Lagos",
+      "top_banks": [
+        "First Bank",
+        "Zenith Bank",
+        "GTBank",
+        "UBA"
+      ],
+      "payment_methods": [
+        "Bank Transfer",
+        "Flutterwave",
+        "Paystack",
+        "Quickteller"
+      ],
+      "gambling_preference": "sports_betting",
+      "peak_hours": "18:00-22:00",
+      "mobile_usage": "94%"
+    },
+    {
+      "id": "9",
+      "country_code": "TH",
+      "name": "Thailand",
+      "language": "th-TH",
+      "currency": "THB",
+      "timezone": "Asia/Bangkok",
+      "top_banks": [
+        "Siam Commercial Bank",
+        "Bangkok Bank", 
+        "Kasikornbank",
+        "Krung Thai Bank"
+      ],
+      "payment_methods": [
+        "PromptPay",
+        "TrueMoney",
+        "SCB Easy",
+        "K PLUS"
+      ],
+      "gambling_preference": "baccarat_slots",
+      "peak_hours": "20:00-24:00",
+      "mobile_usage": "91%"
+    },
+    {
+      "id": "10",
+      "country_code": "ID",
+      "name": "Indonesia",
+      "language": "id-ID",
+      "currency": "IDR",
+      "timezone": "Asia/Jakarta",
+      "top_banks": [
+        "Bank Mandiri",
+        "BRI",
+        "BCA",
+        "BNI"
+      ],
+      "payment_methods": [
+        "OVO",
+        "GoPay",
+        "DANA",
+        "Bank Transfer"
+      ],
+      "gambling_preference": "poker_slots",
+      "peak_hours": "19:00-23:00",
+      "mobile_usage": "88%"
+    }
+  ]
+}

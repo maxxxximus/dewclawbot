@@ -1,0 +1,86 @@
+{
+  "// Опис": "Середні CTA тексти для креативів", 
+  "// Рівень": "medium - більш прямі, з елементами терміновості",
+  "cta_texts": [
+    {
+      "id": "1",
+      "text": "Заберай свій виграш зараз!",
+      "language": "uk",
+      "emotion": "urgent",
+      "urgency": "medium",
+      "target_audience": "motivated_players"
+    },
+    {
+      "id": "2",
+      "text": "Подвоюй свій депозит сьогодні",
+      "language": "uk", 
+      "emotion": "promising",
+      "urgency": "medium",
+      "target_audience": "bonus_hunters"
+    },
+    {
+      "id": "3",
+      "text": "Не втрать свій шанс!",
+      "language": "uk",
+      "emotion": "warning",
+      "urgency": "medium",
+      "target_audience": "fomo_sensitive"
+    },
+    {
+      "id": "4", 
+      "text": "Грай і вигравай кожен день",
+      "language": "uk",
+      "emotion": "confident",
+      "urgency": "medium",
+      "target_audience": "regular_players"
+    },
+    {
+      "id": "5",
+      "text": "Отримай бонус прямо зараз",
+      "language": "uk",
+      "emotion": "immediate",
+      "urgency": "medium", 
+      "target_audience": "instant_gratification"
+    },
+    {
+      "id": "6",
+      "text": "Твоя удача чекає на тебе",
+      "language": "uk",
+      "emotion": "personal",
+      "urgency": "medium",
+      "target_audience": "superstitious_players"
+    },
+    {
+      "id": "7",
+      "text": "Збільш свої шанси на виграш",
+      "language": "uk",
+      "emotion": "strategic",
+      "urgency": "medium",
+      "target_audience": "strategic_thinkers"
+    },
+    {
+      "id": "8",
+      "text": "Активуй мегамножники!",
+      "language": "uk",
+      "emotion": "powerful",
+      "urgency": "medium", 
+      "target_audience": "feature_lovers"
+    },
+    {
+      "id": "9",
+      "text": "Пора збагатитися",
+      "language": "uk",
+      "emotion": "ambitious",
+      "urgency": "medium",
+      "target_audience": "wealth_seekers"
+    },
+    {
+      "id": "10", 
+      "text": "Крути і забирай джекпот",
+      "language": "uk",
+      "emotion": "action_oriented",
+      "urgency": "medium",
+      "target_audience": "jackpot_hunters"
+    }
+  ]
+}
